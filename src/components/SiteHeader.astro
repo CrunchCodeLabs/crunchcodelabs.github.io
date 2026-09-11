@@ -1,0 +1,56 @@
+---
+import Wordmark from './Wordmark.astro';
+
+interface Props {
+  onDark?: boolean;
+}
+const { onDark = false } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Apps' },
+  { href: '/about/', label: 'About' },
+  { href: '/support/', label: 'Support' },
+];
+---
+
+<header class:list={['site-header', { dark: onDark }]}>
+  <a href="/" class="brand" aria-label="CrunchCode Labs home">
+    <Wordmark onDark={onDark} />
+  </a>
+  <nav aria-label="Main">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    flex-wrap: wrap;
+  }
+  .brand {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    gap: clamp(14px, 3vw, 24px);
+    font-size: 0.875rem;
+  }
+  nav a {
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  nav a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+  .dark nav a {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .dark nav a:hover {
+    color: #fff;
+  }
+</style>

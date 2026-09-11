@@ -1,0 +1,34 @@
+---
+interface Props {
+  onDark?: boolean;
+}
+const { onDark = false } = Astro.props;
+---
+
+<span class:list={['wordmark', { dark: onDark }]}>
+  <span class="c">crunch</span><span class="d">code</span><span class="l">labs</span>
+</span>
+
+<style>
+  .wordmark {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-size: 1.0625rem;
+  }
+  .c {
+    color: var(--accent);
+  }
+  .d {
+    color: var(--ink);
+  }
+  .l {
+    color: var(--ink-2);
+  }
+  .dark .c,
+  .dark .d {
+    color: #fff;
+  }
+  .dark .l {
+    color: rgba(255, 255, 255, 0.72);
+  }
+</style>

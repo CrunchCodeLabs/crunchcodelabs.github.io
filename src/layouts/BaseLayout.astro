@@ -1,0 +1,46 @@
+---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import SiteFooter from '../components/SiteFooter.astro';
+import { onColor } from '../lib/contrast';
+import { absolute } from '../lib/urls';
+
+interface Props {
+  title: string;
+  description: string;
+  accent?: string;
+  accentDeep?: string;
+  ogImage?: string;
+}
+const { title, description, accent, accentDeep, ogImage } = Astro.props;
+
+const canonical = absolute(Astro.url.pathname);
+const style =
+  accent && accentDeep
+    ? `--app-accent:${accent};--app-accent-deep:${accentDeep};--app-on-deep:${onColor(accentDeep)};`
+    : undefined;
+---
+
+<!doctype html>
+<html lang="en" style={style}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={absolute(ogImage)} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to content</a>
+    <main id="main"><slot /></main>
+    <SiteFooter />
+  </body>
+</html>

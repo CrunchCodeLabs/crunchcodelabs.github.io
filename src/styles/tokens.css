@@ -1,0 +1,25 @@
+:root {
+  --accent: #6C63FF;
+  --accent-deep: #4B42D6;
+  --ink: #141413;
+  --ink-2: #3D3D3A;
+  --ink-3: #8E8E86;
+  --ground: #FAFAF8;
+  --surface: #FFFFFF;
+  --line: #EDEDE8;
+  --rail: #F4F4F2;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sinhala: 'Noto Sans Sinhala', var(--font-sans);
+
+  --measure: 68ch;
+  --gutter: clamp(20px, 5vw, 40px);
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  /* Overridden per app page by BaseLayout. */
+  --app-accent: var(--accent);
+  --app-accent-deep: var(--accent-deep);
+  --app-on-deep: #FFFFFF;
+}

@@ -1,0 +1,57 @@
+---
+import Wordmark from './Wordmark.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <div>
+      <Wordmark />
+      <p class="mono tag">// build · ship · iterate</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">Apps</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+      <a href="mailto:crunchcodelabs@gmail.com">crunchcodelabs@gmail.com</a>
+    </nav>
+  </div>
+  <div class="wrap copy">© {year} CrunchCode Labs</div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+    padding: 32px 0 48px;
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-top: 6px;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.8125rem;
+  }
+  nav a {
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .copy {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+    margin-top: 24px;
+  }
+</style>
