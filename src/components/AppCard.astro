@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import StatusChip from './StatusChip.astro';
+import { resolveImage } from '../lib/images';
+import { appPath } from '../lib/urls';
+import type { App } from '../lib/apps';
+
+interface Props {
+  app: App;
+}
+const { app } = Astro.props;
+const d = app.data;
+
+const icon = resolveImage(d.icon);
+const href = appPath(app.id);
+const headerStyle = `background:linear-gradient(140deg, ${d.accent}, ${d.accentDeep});`;
+---
+
+<a class="card" href={href}>
+  <div class="head" style={headerStyle}>
+    <Image src={icon} alt="" width={72} height={72} class="icon" loading="eager" />
+  </div>
+  <div class="body">
+    <div class="row">
+      <h3>{d.name}</h3>
+      <StatusChip status={d.status} badge={d.badge} />
+    </div>
+    {d.nativeName && <p class="native sinhala" lang="si">{d.nativeName}</p>}
+    <p class="cat">{d.category}</p>
+    <p class="tag">{d.tagline}</p>
+    <span class="go" style={`color:${d.accentDeep}`}>View app →</span>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(20, 20, 19, 0.1);
+  }
+  .head {
+    display: grid;
+    place-items: center;
+    padding: 28px 0;
+  }
+  .icon {
+    border-radius: 22%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  }
+  .body {
+    padding: 18px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+  .native {
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+  .cat {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+  .tag {
+    font-size: 0.8125rem;
+    color: var(--ink-2);
+    margin-top: 6px;
+  }
+  .go {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+interface Props {
+  status: 'live' | 'beta' | 'coming-soon';
+  badge?: string;
+}
+const { status, badge } = Astro.props;
+
+const LABEL = { live: 'Live', beta: 'Beta', 'coming-soon': 'Coming soon' } as const;
+---
+
+<span class:list={['chip', status]}>{badge ?? LABEL[status]}</span>
+
+<style>
+  .chip {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .live {
+    background: #e7f6ef;
+    color: #146b45;
+  }
+  .beta {
+    background: #fff1dc;
+    color: #8a5316;
+  }
+  .coming-soon {
+    background: var(--line);
+    color: var(--ink-2);
+  }
+</style>

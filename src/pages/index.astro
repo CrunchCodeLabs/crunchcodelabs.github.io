@@ -1,0 +1,181 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import AppCard from '../components/AppCard.astro';
+import StoreBadges from '../components/StoreBadges.astro';
+import { byOrder } from '../lib/apps';
+
+const apps = (await getCollection('apps')).sort(byOrder);
+const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
+---
+
+<BaseLayout
+  title="CrunchCode Labs — small, sharp mobile apps"
+  description="An independent mobile app studio. We build focused Android apps that respect your time, your battery and your data."
+>
+  <section class="hero">
+    <div class="wrap">
+      <SiteHeader onDark />
+      <div class="grid">
+        <div>
+          <h1>Apps that feel<br />good to use.</h1>
+          <p class="sub">
+            An independent studio building focused mobile tools. Private by default, free to
+            try, and never in a hurry to sell you anything.
+          </p>
+          <StoreBadges playUrl={anyPlay} name="CrunchCode Labs apps" />
+        </div>
+        <div class="phones" aria-hidden="true">
+          <div class="phone back">
+            <div class="scr">
+              <i class="t"></i><i class="l w9"></i><i class="l w6"></i><i class="b"></i><i
+                class="l w7"></i>
+            </div>
+          </div>
+          <div class="phone">
+            <div class="scr">
+              <i class="t w4"></i><i class="b tall"></i><i class="l w9"></i><i class="l w7"></i><i
+                class="l w5"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apps wrap" aria-labelledby="apps-h">
+    <h2 id="apps-h">Our apps</h2>
+    <div class="cards">
+      {apps.map((app) => <AppCard app={app} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /*
+   * Text sits on --accent-deep, never the flat --accent: white on #6C63FF is
+   * 4.32:1, under the 4.5:1 AA body threshold. The bright accent is a bloom in
+   * the lower right, away from every run of text.
+   */
+  .hero {
+    background:
+      radial-gradient(58% 52% at 88% 84%, var(--accent) 0%, transparent 68%),
+      linear-gradient(
+        176deg,
+        var(--accent-deep) 0%,
+        var(--accent-deep) 58%,
+        color-mix(in srgb, var(--accent-deep) 55%, var(--ground)) 80%,
+        var(--ground) 100%
+      );
+    padding-bottom: 56px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+    padding-top: 40px;
+  }
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+  }
+  .sub {
+    margin: 16px 0 26px;
+    max-width: 38ch;
+    color: #fff;
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  }
+  .phones {
+    display: flex;
+    gap: 14px;
+  }
+  .phone {
+    width: 132px;
+    height: 250px;
+    border-radius: 20px;
+    background: var(--ink);
+    padding: 6px;
+    box-shadow: 0 22px 48px rgba(30, 25, 90, 0.34);
+    flex-shrink: 0;
+  }
+  .phone.back {
+    transform: translateY(-22px) rotate(-5deg);
+  }
+  .scr {
+    height: 100%;
+    border-radius: 15px;
+    padding: 12px 10px;
+    background: linear-gradient(165deg, #f4f3ff, #fff);
+  }
+  .scr i {
+    display: block;
+    border-radius: 3px;
+  }
+  .t {
+    height: 8px;
+    width: 55%;
+    background: var(--accent);
+    margin-bottom: 10px;
+  }
+  .l {
+    height: 5px;
+    background: #e4e2f6;
+    margin-bottom: 7px;
+  }
+  .b {
+    height: 40px;
+    background: #edebff;
+    border-radius: 9px;
+    margin: 12px 0 10px;
+  }
+  .b.tall {
+    height: 56px;
+  }
+  .w4 {
+    width: 40%;
+  }
+  .w5 {
+    width: 50%;
+  }
+  .w6 {
+    width: 60%;
+  }
+  .w7 {
+    width: 70%;
+  }
+  .w9 {
+    width: 90%;
+  }
+
+  .apps {
+    padding: 48px 0 8px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .cards {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 1120px;
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .phones {
+      justify-content: flex-start;
+      margin-top: 8px;
+    }
+    .phone {
+      width: 108px;
+      height: 204px;
+    }
+  }
+</style>
