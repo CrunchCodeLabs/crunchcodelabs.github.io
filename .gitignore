@@ -1,0 +1,19 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# brainstorming companion (local design session artefacts)
+.superpowers/
+
+# environment
+.env
+.env.production
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

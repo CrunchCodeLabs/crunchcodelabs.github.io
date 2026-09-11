@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <text
+       x="87.532295"
+       y="41.36549"
+       text-anchor="middle"
+       style="color:#000000;font-weight:500;font-size:29.9353px;font-family:'Anthropic Sans', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#141413;stroke:none;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text23"
+       transform="scale(0.77646406,1.2878896)"><tspan
+         fill="#6C63FF"
+         style="color:#000000;font-weight:500;font-size:29.9353px;font-family:'Anthropic Sans', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#6c63ff;stroke:none;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="tspan22">crunch</tspan><tspan
+         fill="var(--color-text-primary)"
+         style="color:#000000;font-weight:500;font-size:29.9353px;font-family:'Anthropic Sans', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#141413;stroke:none;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="tspan23">code</tspan></text>
+    <text
+       x="87.532295"
+       y="67.737022"
+       text-anchor="middle"
+       style="color:#000000;font-weight:400;font-size:11.4039px;font-family:'Anthropic Sans', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#3d3d3a;stroke:none;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text24"
+       transform="scale(0.77646406,1.2878896)">LABS</text>
+    <text
+       x="87.532295"
+       y="84.842873"
+       text-anchor="middle"
+       style="color:#000000;font-weight:400;font-size:7.84018px;font-family:ui-monospace, monospace;dominant-baseline:auto;text-anchor:middle;fill:#6c63ff;stroke:none;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text25"
+       transform="scale(0.77646406,1.2878896)">// build · ship · iterate</text>
+    <line
+       x1="1.5552659"
+       y1="122.11932"
+       x2="134.3761"
+       y2="122.11932"
+       stroke="var(--color-border-tertiary)"
+       stroke-width="1"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke-width:0.712743px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line25" />
+  </g>
+</svg>
