@@ -6,7 +6,7 @@
 
 **Architecture:** Astro with static output. Two content collections (`apps`, `legal`) carry all data; a Zod schema fails the build on malformed entries. Pages are generated from the collections, so no route or component is touched when an app is added. Assets live in `src/assets/` so `astro:assets` can optimize them. Deploys to GitHub Pages from `main` via Actions.
 
-**Tech Stack:** Astro 5, TypeScript (strict), Vitest, Zod (via `astro:content`), Turndown (legal HTML → markdown, build-time only), GitHub Actions.
+**Tech Stack:** Astro 7, TypeScript (strict), Vitest 5, Zod (via `astro:content`), Turndown (legal HTML → markdown, build-time only), GitHub Actions.
 
 **Spec:** `docs/superpowers/specs/2026-09-11-crunchcode-labs-website-design.md`
 
@@ -88,13 +88,13 @@ tests/                        urls, contrast, images, apps, schema
     "test:watch": "vitest"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "@astrojs/sitemap": "^3.2.0"
+    "astro": "^7.3.2",
+    "@astrojs/sitemap": "^3.7.4"
   },
   "devDependencies": {
-    "vitest": "^2.1.0",
-    "turndown": "^7.2.0",
-    "sharp": "^0.33.0"
+    "vitest": "^5.0.0",
+    "turndown": "^7.2.4",
+    "sharp": "^0.35.4"
   }
 }
 ```
