@@ -15,10 +15,12 @@ const { screenshots, tablet = [], appName } = Astro.props;
  * rendered as-is, with no device chrome of our own, and on a neutral rail so
  * the band does not tint one app's panels.
  */
-const shots = screenshots.map((path, i) => ({
-  img: resolveImage(path),
-  alt: `${appName} screenshot ${i + 1}`,
-}));
+const shots = await Promise.all(
+  screenshots.map(async (path, i) => ({
+    img: await resolveImage(path),
+    alt: `${appName} screenshot ${i + 1}`,
+  })),
+);
 
 const hasTablet = tablet.length === screenshots.length && tablet.length > 0;
 ---
@@ -36,6 +38,7 @@ const hasTablet = tablet.length === screenshots.length && tablet.length > 0;
               src={s.img}
               alt={s.alt}
               widths={[320, 480, 720]}
+              format="webp"
               sizes="(max-width: 640px) 62vw, 300px"
               loading="lazy"
             />

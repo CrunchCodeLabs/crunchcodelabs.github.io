@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 const { app } = Astro.props;
 const d = app.data;
 const { Content } = await render(app);
-const icon = resolveImage(d.icon);
+const icon = await resolveImage(d.icon);
 
 const PLATFORM = { android: 'Android', ios: 'iOS' } as const;
 const chips = [d.category, d.platforms.map((p) => PLATFORM[p]).join(' · '), `v${d.version}`];
@@ -36,7 +36,16 @@ const chips = [d.category, d.platforms.map((p) => PLATFORM[p]).join(' · '), `v$
         <a href="/">Apps</a> <span aria-hidden="true">/</span> <span>{d.name}</span>
       </nav>
       <div class="id">
-        <Image src={icon} alt={`${d.name} app icon`} width={96} height={96} class="icon" />
+        <Image
+          src={icon}
+          alt={`${d.name} app icon`}
+          width={96}
+          height={96}
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+          class="icon"
+        />
         <h1>{d.name}</h1>
         {d.nativeName && <p class="native sinhala" lang="si">{d.nativeName}</p>}
         <p class="tagline">{d.tagline}</p>

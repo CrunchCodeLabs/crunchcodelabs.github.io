@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+
+<BaseLayout
+  title="About — CrunchCode Labs"
+  description="An independent mobile app studio building small, focused Android apps."
+>
+  <div class="wrap">
+    <SiteHeader />
+    <article class="doc">
+      <p class="kicker mono">// build · ship · iterate</p>
+      <h1>A small studio that ships small apps.</h1>
+      <div class="prose">
+        <p>
+          CrunchCode Labs is an independent mobile app studio. We build focused Android apps —
+          the kind that do one thing properly rather than ten things adequately.
+        </p>
+        <p>
+          Every app we ship is built on the same three commitments: your data stays on your
+          device unless you explicitly choose otherwise, there are no dark patterns engineered
+          to keep you opening the app, and nothing is hidden behind a subscription you will
+          forget you are paying for.
+        </p>
+        <p>
+          The name is the method. Build the smallest useful version, ship it, then iterate on
+          what people actually use rather than on what we guessed they would.
+        </p>
+        <p>
+          Questions, bug reports and feature requests all go to
+          <a href="mailto:crunchcodelabs@gmail.com">crunchcodelabs@gmail.com</a>, and they are
+          read by the person who wrote the code.
+        </p>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc {
+    padding: 32px 0 8px;
+    max-width: var(--measure);
+  }
+  .kicker {
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(1.875rem, 5vw, 2.5rem);
+    font-weight: 700;
+  }
+  .prose {
+    margin-top: 24px;
+    color: var(--ink-2);
+  }
+  .prose p {
+    margin-bottom: 16px;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+
+<BaseLayout title="Page not found — CrunchCode Labs" description="That page does not exist.">
+  <div class="wrap">
+    <SiteHeader />
+    <div class="mid">
+      <p class="mono code">// 404</p>
+      <h1>That page does not exist.</h1>
+      <p class="sub">It may have moved, or it may never have existed in the first place.</p>
+      <a class="btn" href="/">Back to the apps</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .mid {
+    padding: 80px 0 120px;
+    max-width: 46ch;
+  }
+  .code {
+    color: var(--accent);
+    font-size: 0.8125rem;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(1.625rem, 4.5vw, 2.25rem);
+    font-weight: 700;
+  }
+  .sub {
+    color: var(--ink-2);
+    margin-top: 12px;
+  }
+  .btn {
+    display: inline-block;
+    margin-top: 26px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: 10px;
+  }
+</style>

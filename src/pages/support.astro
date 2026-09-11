@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { byOrder } from '../lib/apps';
+import { appPath } from '../lib/urls';
+
+const apps = (await getCollection('apps')).sort(byOrder);
+const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
+---
+
+<BaseLayout
+  title="Support — CrunchCode Labs"
+  description="Get help with a CrunchCode Labs app, or request deletion of your data."
+>
+  <div class="wrap">
+    <SiteHeader />
+    <article class="doc">
+      <h1>Support</h1>
+      <div class="prose">
+        <p>
+          Email <a href="mailto:crunchcodelabs@gmail.com">crunchcodelabs@gmail.com</a> for
+          anything: a bug, a feature request, or a data-deletion request. Naming the app and
+          your Android version in the first line gets you a faster answer.
+        </p>
+      </div>
+
+      <h2>Per app</h2>
+      <ul class="apps" role="list">
+        {
+          apps.map((a) => (
+            <li>
+              <div>
+                <a class="name" href={appPath(a.id)}>
+                  {a.data.name}
+                </a>
+                <p class="meta mono">
+                  {a.data.packageId} · v{a.data.version}
+                </p>
+              </div>
+              <a
+                class="mail"
+                href={`mailto:${a.data.support.email}?subject=${encodeURIComponent(`${a.data.name} — support`)}`}
+              >
+                Email about {a.data.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      {
+        donate && (
+          <>
+            <h2>Support the work</h2>
+            <div class="prose">
+              <p>
+                These apps are free and carry no subscription. If one of them has been useful,{' '}
+                <a href={donate} rel="noopener">
+                  buying a coffee
+                </a>{' '}
+                is a kind way to say so.
+              </p>
+            </div>
+          </>
+        )
+      }
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc {
+    padding: 32px 0 8px;
+    max-width: var(--measure);
+  }
+  h1 {
+    font-size: clamp(1.875rem, 5vw, 2.5rem);
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 36px 0 14px;
+  }
+  .prose {
+    margin-top: 20px;
+    color: var(--ink-2);
+  }
+  .prose p {
+    margin-bottom: 16px;
+  }
+  .apps {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .apps li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .name {
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .meta {
+    font-size: 0.6875rem;
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+  .mail {
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+</style>
