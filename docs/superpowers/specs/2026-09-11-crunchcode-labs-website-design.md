@@ -83,8 +83,8 @@ Per-app accents:
 
 | App | Accent | Source |
 | --- | --- | --- |
-| My Book Trail | `#1EB8AC` teal, deep `#12201F` | its own icon and existing site CSS |
-| Pure Mathematics Sinhala | **to be chosen** from its launcher icon during implementation (§11.3) | `ic_launcher-web.png` |
+| My Book Trail | `#0C7C81` teal, deep `#053C40` | sampled from the shipped Play icon |
+| Pure Mathematics Sinhala | `#16E5A4` green, deep `#075C42` | sampled from `ic_launcher-web.png` |
 
 ---
 
@@ -333,7 +333,7 @@ These do not block implementation but must be resolved before the site is author
    taken down before Play is updated, the listing is out of compliance. **Owner action.**
 2. **Pure Mathematics Sinhala legal copy.** Must be written. 2.0 removes ads and all runtime
    permissions, so it is a genuinely different document from My Book Trail's.
-3. **Pure Mathematics Sinhala accent colour**, to be drawn from its launcher icon.
+3. ~~Pure Mathematics Sinhala accent colour~~ — resolved: `#16E5A4` / `#075C42`, sampled from the launcher icon.
 4. **Pure Mathematics Sinhala store screenshots** — none exist. The page ships with the
    empty state (§6.3) until they do.
 5. **Play listing URL for Pure Mathematics Sinhala** — needs confirming against the live
