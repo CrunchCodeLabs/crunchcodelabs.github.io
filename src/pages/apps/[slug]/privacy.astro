@@ -1,0 +1,28 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import LegalLayout from '../../../layouts/LegalLayout.astro';
+
+export async function getStaticPaths() {
+  const apps = await getCollection('apps');
+  return apps
+    .filter((app) => Boolean(app.data.privacy))
+    .map((app) => ({ params: { slug: app.id }, props: { app } }));
+}
+
+const { app } = Astro.props;
+const entry = await getEntry('legal', app.data.privacy!);
+if (!entry) throw new Error(`Missing legal entry "${app.data.privacy}" for app "${app.id}"`);
+const { Content, headings } = await render(entry);
+---
+
+<LegalLayout
+  appName={app.data.name}
+  appSlug={app.id}
+  title={entry.data.title}
+  updated={entry.data.updated}
+  accent={app.data.accent}
+  accentDeep={app.data.accentDeep}
+  headings={headings}
+>
+  <Content />
+</LegalLayout>
