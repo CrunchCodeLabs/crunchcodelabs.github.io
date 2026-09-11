@@ -253,7 +253,7 @@ which matters because the screenshot set is 3.8MB of unoptimized PNG today.
 Rejected: hand-written HTML in the style of `store/site/` (does not survive past ~3 apps
 without copy-paste drift); Next.js (a server runtime that would never be used).
 
-- Astro (latest 5.x), TypeScript strict, zero client JS except the screenshot rail's keyboard handler.
+- Astro 7, TypeScript strict, zero client JS except the screenshot rail's keyboard handler.
 - `@astrojs/sitemap`; `astro:assets` → WebP with responsive `srcset`, lazy below the fold.
 - No CSS framework. Design tokens as CSS custom properties, per-app accent injected as
   inline custom properties on the page root.
