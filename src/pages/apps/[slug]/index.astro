@@ -1,0 +1,155 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import StoreBadges from '../../../components/StoreBadges.astro';
+import ScreenshotRail from '../../../components/ScreenshotRail.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import LegalCards from '../../../components/LegalCards.astro';
+import { resolveImage } from '../../../lib/images';
+
+export async function getStaticPaths() {
+  const apps = await getCollection('apps');
+  return apps.map((app) => ({ params: { slug: app.id }, props: { app } }));
+}
+
+const { app } = Astro.props;
+const d = app.data;
+const { Content } = await render(app);
+const icon = resolveImage(d.icon);
+
+const PLATFORM = { android: 'Android', ios: 'iOS' } as const;
+const chips = [d.category, d.platforms.map((p) => PLATFORM[p]).join(' · '), `v${d.version}`];
+---
+
+<BaseLayout
+  title={`${d.name} — CrunchCode Labs`}
+  description={d.tagline}
+  accent={d.accent}
+  accentDeep={d.accentDeep}
+>
+  <section class="hero">
+    <div class="wrap">
+      <SiteHeader onDark />
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Apps</a> <span aria-hidden="true">/</span> <span>{d.name}</span>
+      </nav>
+      <div class="id">
+        <Image src={icon} alt={`${d.name} app icon`} width={96} height={96} class="icon" />
+        <h1>{d.name}</h1>
+        {d.nativeName && <p class="native sinhala" lang="si">{d.nativeName}</p>}
+        <p class="tagline">{d.tagline}</p>
+        <ul class="chips" role="list">
+          {chips.map((c) => <li>{c}</li>)}
+          {d.badge && <li>{d.badge}</li>}
+        </ul>
+        <StoreBadges playUrl={d.playUrl} appStoreUrl={d.appStoreUrl} name={d.name} />
+      </div>
+    </div>
+  </section>
+
+  <ScreenshotRail screenshots={d.screenshots} tablet={d.screenshotsTablet} appName={d.name} />
+
+  <section class="wrap about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="prose"><Content /></div>
+    <FeatureGrid features={d.features} />
+  </section>
+
+  <LegalCards slug={app.id} hasPrivacy={Boolean(d.privacy)} hasTerms={Boolean(d.terms)} />
+</BaseLayout>
+
+<style>
+  /*
+   * Every run of text sits on --app-accent-deep, which onColor() has already
+   * measured against white and ink. The bright --app-accent is a bloom in the
+   * lower right only: Pure Maths' #16E5A4 is 1.64:1 against white, so no text
+   * may cross it.
+   */
+  .hero {
+    background:
+      radial-gradient(52% 46% at 90% 88%, var(--app-accent) 0%, transparent 66%),
+      linear-gradient(
+        176deg,
+        var(--app-accent-deep) 0%,
+        var(--app-accent-deep) 62%,
+        color-mix(in srgb, var(--app-accent-deep) 50%, var(--ground)) 82%,
+        var(--ground) 100%
+      );
+    padding-bottom: 44px;
+    text-align: center;
+  }
+  .hero :global(.site-header) {
+    text-align: left;
+  }
+  .crumb {
+    font-size: 0.75rem;
+    color: var(--app-on-deep);
+    opacity: 0.85;
+    margin: 18px 0 24px;
+  }
+  .crumb a {
+    color: inherit;
+  }
+  .id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon {
+    border-radius: 24%;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    font-size: clamp(2rem, 5.5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--app-on-deep);
+    margin-top: 18px;
+  }
+  .native {
+    font-size: 1.125rem;
+    color: var(--app-on-deep);
+    opacity: 0.9;
+    margin-top: 8px;
+  }
+  .tagline {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: var(--app-on-deep);
+    opacity: 0.92;
+    max-width: 44ch;
+    margin: 12px auto 0;
+  }
+  .chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 20px;
+  }
+  .chips li {
+    font-size: 0.6875rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    color: var(--app-on-deep);
+    background: color-mix(in srgb, var(--app-on-deep) 16%, transparent);
+    border: 1px solid color-mix(in srgb, var(--app-on-deep) 28%, transparent);
+  }
+  .about {
+    padding: 44px 0 8px;
+  }
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .prose {
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+  .prose :global(p + p) {
+    margin-top: 14px;
+  }
+</style>

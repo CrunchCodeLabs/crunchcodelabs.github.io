@@ -1,0 +1,75 @@
+---
+import { privacyPath, termsPath } from '../lib/urls';
+
+interface Props {
+  slug: string;
+  hasPrivacy: boolean;
+  hasTerms: boolean;
+}
+const { slug, hasPrivacy, hasTerms } = Astro.props;
+
+const cards = [
+  hasPrivacy && { href: privacyPath(slug), title: 'Privacy Policy' },
+  hasTerms && { href: termsPath(slug), title: 'Terms & Conditions' },
+].filter(Boolean) as { href: string; title: string }[];
+---
+
+{
+  cards.length > 0 && (
+    <section class="wrap legal" aria-labelledby="legal-h">
+      <h2 id="legal-h">Legal</h2>
+      <div class="cards">
+        {cards.map((c) => (
+          <a href={c.href}>
+            <span class="t">
+              {c.title} <span aria-hidden="true">→</span>
+            </span>
+            <span class="u mono">{c.href}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .legal {
+    padding: 8px 0 16px;
+  }
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .cards {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  a:hover {
+    border-color: var(--app-accent);
+  }
+  .t {
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .t span {
+    color: var(--app-accent-deep);
+  }
+  .u {
+    font-size: 0.6875rem;
+    color: var(--ink-3);
+    word-break: break-all;
+  }
+</style>
