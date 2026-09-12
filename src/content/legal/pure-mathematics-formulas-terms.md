@@ -1,5 +1,5 @@
 ---
-app: pure-mathematics-sinhala
+app: pure-mathematics-formulas
 kind: terms
 title: Terms & Conditions
 updated: 2026-09-11

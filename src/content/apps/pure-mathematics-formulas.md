@@ -1,5 +1,5 @@
 ---
-name: Pure Mathematics Sinhala
+name: Pure Mathematics Formulas
 nativeName: ශුද්ධ ගණිතය සූත්‍ර
 tagline: Every A/L Combined Mathematics formula, in Sinhala, in your pocket.
 category: Education
@@ -12,8 +12,8 @@ packageId: com.crunchcode.puremathematicssinhala
 version: '1.12'
 platforms: [android]
 playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.puremathematicssinhala
-icon: pure-mathematics-sinhala/icon.png
-feature: pure-mathematics-sinhala/feature.png
+icon: pure-mathematics-formulas/icon.png
+feature: pure-mathematics-formulas/feature.png
 screenshots: []
 features:
   - title: Fourteen topics
@@ -22,15 +22,22 @@ features:
     body: Every topic in the language students actually sit the paper in.
   - title: Works offline
     body: All content is bundled in the app. No connection needed, ever.
+  - title: Daily quiz
+    body: Three questions a day, weighted towards the topics you keep getting wrong.
 support:
   email: crunchcodelabs@gmail.com
-privacy: pure-mathematics-sinhala-privacy
-terms: pure-mathematics-sinhala-terms
+privacy: pure-mathematics-formulas-privacy
+terms: pure-mathematics-formulas-terms
 ---
 
-Pure Mathematics Sinhala is a formula reference for the Sri Lankan A/L Combined
+Pure Mathematics Formulas is a formula reference for the Sri Lankan A/L Combined
 Mathematics syllabus, written entirely in Sinhala. Fourteen topics cover the formulas
 students need, laid out for fast lookup rather than for reading end to end.
 
+A daily quiz turns the reference into revision. Three questions arrive each day, weighted
+towards the topics you keep getting wrong, and every question links straight back to the
+section it came from — so a wrong answer takes you to the formula rather than just marking
+you down. An optional reminder nudges you when it is time.
+
 A 2.0 release is in development: a full Jetpack Compose rewrite with dark mode, full-text
-search, section bookmarks, and advertising removed entirely.
+search across every topic, section bookmarks, and the daily quiz.

@@ -4,8 +4,7 @@ import { fileURLToPath } from 'node:url';
 import TurndownService from 'turndown';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-// MyBookTrail's store/ was renamed to listing-resources/ during development.
-const SRC = resolve(ROOT, '..', 'MyBookTrail', 'listing-resources', 'site');
+const SIBLINGS = resolve(ROOT, '..');
 const OUT = join(ROOT, 'src', 'content', 'legal');
 
 const td = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' });
@@ -36,20 +35,38 @@ td.addRule('gfmTable', {
   },
 });
 
+// MyBookTrail's store/ was renamed to listing-resources/ during development.
+const MBT = join(SIBLINGS, 'MyBookTrail', 'listing-resources', 'site');
+const PMF = join(SIBLINGS, 'PureMathematicsSinhala', 'listing-resources');
+
 const JOBS = [
   {
-    file: 'privacy-policy.html',
-    slug: 'my-book-trail-privacy',
+    src: join(MBT, 'privacy-policy.html'),
+    app: 'my-book-trail',
     kind: 'privacy',
     title: 'Privacy Policy',
   },
-  { file: 'terms.html', slug: 'my-book-trail-terms', kind: 'terms', title: 'Terms & Conditions' },
+  {
+    src: join(MBT, 'terms.html'),
+    app: 'my-book-trail',
+    kind: 'terms',
+    title: 'Terms & Conditions',
+  },
+  {
+    src: join(PMF, 'privacy-policy.html'),
+    app: 'pure-mathematics-formulas',
+    kind: 'privacy',
+    title: 'Privacy Policy',
+  },
+  // Pure Mathematics Formulas has no authored terms document yet, so
+  // src/content/legal/pure-mathematics-formulas-terms.md stays hand-written.
 ];
 
 await mkdir(OUT, { recursive: true });
 
 for (const job of JOBS) {
-  const html = await readFile(join(SRC, job.file), 'utf8');
+  job.slug = `${job.app}-${job.kind}`;
+  const html = await readFile(job.src, 'utf8');
   const body = /<body[^>]*>([\s\S]*?)<\/body>/i.exec(html)?.[1] ?? html;
 
   const stripped = body
@@ -59,7 +76,11 @@ for (const job of JOBS) {
     // Site footer duplicates our own.
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
     .replace(/<button[\s\S]*?<\/button>/gi, '')
-    .replace(/<img[^>]*>/gi, '');
+    .replace(/<img[^>]*>/gi, '')
+    // Drop the document's own title. LegalLayout renders it, and leaving this
+    // one in gives the page two <h1>s. Only the first is removed, so a stray
+    // h1 deeper in the body would still surface rather than being hidden.
+    .replace(/<h1[\s\S]*?<\/h1>/i, '');
 
   const md = td
     .turndown(stripped)
@@ -70,7 +91,7 @@ for (const job of JOBS) {
 
   const front = [
     '---',
-    `app: ${job.slug.replace(/-(privacy|terms)$/, '')}`,
+    `app: ${job.app}`,
     `kind: ${job.kind}`,
     `title: ${job.title}`,
     `updated: ${updated}`,
