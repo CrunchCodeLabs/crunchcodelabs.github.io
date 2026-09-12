@@ -1,0 +1,8 @@
+# app-ads.txt — IAB Tech Lab Authorized Sellers for Apps
+# Must be served from the root of the domain listed as the developer website
+# on the Google Play listing, i.e. https://crunchcodelabs.github.io/app-ads.txt
+#
+# Meta Audience Network
+facebook.com, 368837391253650, DIRECT, c3e20eee3f780d68
+# Google AdMob
+google.com, pub-2801565055880857, DIRECT, f08c47fec0942fa0

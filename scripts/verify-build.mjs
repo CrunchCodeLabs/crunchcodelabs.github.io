@@ -32,6 +32,31 @@ for (const page of ['/index.html', '/about/index.html', '/support/index.html', '
   );
 }
 
+/*
+ * 1b. app-ads.txt must sit at the domain root and parse.
+ *
+ * Ad-network crawlers fetch it from the root of the developer website named on
+ * the Play listing. If it is missing, misnamed or malformed, AdMob and Meta
+ * treat the inventory as unauthorized and fill drops — silently, with no build
+ * or runtime error anywhere. Hence a build-time check.
+ */
+const adsFile = files.find((f) => rel(f) === '/app-ads.txt');
+check(Boolean(adsFile), 'Missing /app-ads.txt at the site root');
+if (adsFile) {
+  const lines = (await readFile(adsFile, 'utf8'))
+    .split(/\r?\n/)
+    .map((l) => l.replace(/#.*$/, '').trim())
+    .filter(Boolean);
+  check(lines.length > 0, '/app-ads.txt has no records');
+  for (const line of lines) {
+    const fields = line.split(',').map((f) => f.trim());
+    check(
+      fields.length >= 3 && /^(DIRECT|RESELLER)$/i.test(fields[2]),
+      `/app-ads.txt malformed record: "${line}"`,
+    );
+  }
+}
+
 // 2. Every app has a detail page; every app declaring a policy has one.
 const appDirs = files
   .filter((f) => /^\/apps\/[^/]+\/index\.html$/.test(rel(f)))
