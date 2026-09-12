@@ -55,37 +55,34 @@ const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
             <h2>Support the work</h2>
             <div class="prose">
               <p>
-                These apps are free and carry no subscription. If one of them has been useful,{' '}
-                <a href={donate} rel="noopener">
-                  buying a coffee
-                </a>{' '}
-                is a kind way to say so.
+                These apps are free and carry no subscription. If one of them has been useful,
+                buying a coffee is a kind way to say so.
               </p>
             </div>
+            <a class="bmc" href={donate} rel="noopener">
+              <svg
+                class="cup"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"></path>
+                <path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"></path>
+                <path d="M7 3c0 1-1 1.5-1 2.5S7 7 7 7"></path>
+                <path d="M11 3c0 1-1 1.5-1 2.5S11 7 11 7"></path>
+                <path d="M15 3c0 1-1 1.5-1 2.5S15 7 15 7"></path>
+              </svg>
+              Buy me a coffee
+            </a>
           </>
         )
       }
     </article>
   </div>
-
-  {/*
-    Buy Me a Coffee floating widget. Third-party script from the BMC CDN — the
-    only external runtime dependency and the only client JS on the site, added
-    at the owner's request. `is:inline` keeps Astro from bundling it so the
-    data-* attributes reach the widget intact. Scoped to this page only.
-  */}
-  <script
-    is:inline
-    data-name="BMC-Widget"
-    data-cfasync="false"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="crunchcodelabs"
-    data-description="Support me on Buy me a coffee!"
-    data-message="These apps are free and carry no subscription. If one of them has been useful, buying a coffee is a kind way to say so."
-    data-color="#26B0A1"
-    data-position="Right"
-    data-x_margin="18"
-    data-y_margin="18"></script>
 </BaseLayout>
 
 <style>
@@ -139,5 +136,33 @@ const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
   .mail {
     font-size: 0.8125rem;
     font-weight: 600;
+  }
+
+  /* Buy Me a Coffee, in the page flow rather than as a floating overlay.
+     BMC's own teal, so it still reads as BMC without their script. */
+  .bmc {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 4px;
+    background: #26b0a1;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 11px 20px;
+    border-radius: 10px;
+    transition:
+      background 0.15s ease,
+      transform 0.15s ease;
+  }
+  .bmc:hover {
+    background: #1f9789;
+    transform: translateY(-1px);
+  }
+  .cup {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 </style>

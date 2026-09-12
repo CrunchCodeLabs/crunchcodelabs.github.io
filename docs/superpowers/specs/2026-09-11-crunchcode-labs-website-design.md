@@ -39,8 +39,7 @@ than studio-wide.
 
 - No CMS, admin UI, or backend.
 - No blog, changelog, or newsletter in this release.
-- No analytics or tracking of any kind on the website, other than whatever the Buy Me a
-  Coffee widget sets on `/support` (see §7.3).
+- No analytics or tracking of any kind on the website.
 - No i18n framework. Sinhala appears as app content, not as a site-wide locale.
 - No rewrite of the existing legal copy — it is migrated verbatim.
 
@@ -254,27 +253,22 @@ which matters because the screenshot set is 3.8MB of unoptimized PNG today.
 Rejected: hand-written HTML in the style of `store/site/` (does not survive past ~3 apps
 without copy-paste drift); Next.js (a server runtime that would never be used).
 
-- Astro 7, TypeScript strict. The only client JS is the third-party Buy Me a Coffee
-  widget on `/support` (§7.3); the screenshot rail uses native scroll-container keyboard
-  behaviour and ships no JS of its own.
+- Astro 7, TypeScript strict, zero client JS. The screenshot rail uses native
+  scroll-container keyboard behaviour rather than a handler of its own.
 - `@astrojs/sitemap`; `astro:assets` → WebP with responsive `srcset`, lazy below the fold.
 - No CSS framework. Design tokens as CSS custom properties, per-app accent injected as
   inline custom properties on the page root.
-- One runtime CDN dependency: the Buy Me a Coffee widget on `/support` only (§7.3).
+- No runtime dependency on any CDN.
 
-### 7.3 Buy Me a Coffee widget
+### 7.3 Donations
 
-`/support` loads `https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js` and renders a
-floating donate button, added at the owner's request on 2026-09-12.
+`/support` carries a "Buy me a coffee" button under the **Support the work** heading,
+linking to `https://buymeacoffee.com/crunchcodelabs`.
 
-This is a deliberate exception to the two rules above — it is the site's only external
-runtime dependency and its only client-side JavaScript. It is scoped to `/support`, so no
-other page (and in particular no legal page) loads third-party code. The tag carries
-`is:inline` so Astro emits it verbatim rather than bundling it, which would strip the
-`data-*` attributes the widget reads its configuration from.
-
-The plain text link to the same destination is kept alongside it, so the donate path still
-works if the widget is blocked or fails to load.
+It is an ordinary styled anchor, not BMC's widget script. The script was tried first and
+reverted: it only renders as a fixed floating overlay, it cannot sit in the page flow, and
+it would have been the site's only CDN dependency, only client-side JavaScript and only
+cookie source. The button uses BMC's teal `#26B0A1` so it still reads as BMC.
 
 ### 7.1 Repository
 
