@@ -1,5 +1,5 @@
 ---
-app: pure-mathematics-formulas
+app: al-pure-mathematics
 kind: terms
 title: Terms & Conditions
 updated: 2026-09-11

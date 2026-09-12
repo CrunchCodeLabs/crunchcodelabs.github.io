@@ -1,10 +1,10 @@
 ---
-app: pure-mathematics-formulas
+app: al-pure-mathematics
 kind: privacy
 title: Privacy Policy
 updated: 2026-09-12
 ---
-**A/L ශුද්ධ ගණිතය** (Pure Mathematics Sinhala)  
+**A/L ශුද්ධ ගණිතය** (A/L Pure Mathematics)  
 Android package `com.crunchcode.puremathematicssinhala`  
 Effective 12 September 2026
 

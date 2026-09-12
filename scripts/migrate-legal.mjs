@@ -54,12 +54,12 @@ const JOBS = [
   },
   {
     src: join(PMF, 'privacy-policy.html'),
-    app: 'pure-mathematics-formulas',
+    app: 'al-pure-mathematics',
     kind: 'privacy',
     title: 'Privacy Policy',
   },
-  // Pure Mathematics Formulas has no authored terms document yet, so
-  // src/content/legal/pure-mathematics-formulas-terms.md stays hand-written.
+  // A/L Pure Mathematics has no authored terms document yet, so
+  // src/content/legal/al-pure-mathematics-terms.md stays hand-written.
 ];
 
 await mkdir(OUT, { recursive: true });

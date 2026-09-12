@@ -29,7 +29,7 @@ const JOBS = [
     ],
   },
   {
-    slug: 'pure-mathematics-formulas',
+    slug: 'al-pure-mathematics',
     files: [],
     dirs: [],
     // Play graphics ship as .jfif — JPEG under an extension neither the asset

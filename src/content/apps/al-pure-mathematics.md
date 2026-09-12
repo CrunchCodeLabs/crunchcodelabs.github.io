@@ -1,6 +1,6 @@
 ---
-name: Pure Mathematics Formulas
-nativeName: ශුද්ධ ගණිතය සූත්‍ර
+name: A/L Pure Mathematics
+nativeName: A/L ශුද්ධ ගණිතය
 tagline: Every A/L Combined Mathematics formula, in Sinhala, in your pocket.
 category: Education
 status: live
@@ -12,8 +12,8 @@ packageId: com.crunchcode.puremathematicssinhala
 version: '1.12'
 platforms: [android]
 playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.puremathematicssinhala
-icon: pure-mathematics-formulas/icon.png
-feature: pure-mathematics-formulas/feature.png
+icon: al-pure-mathematics/icon.png
+feature: al-pure-mathematics/feature.png
 screenshots: []
 features:
   - title: Fourteen topics
@@ -26,11 +26,11 @@ features:
     body: Three questions a day, weighted towards the topics you keep getting wrong.
 support:
   email: crunchcodelabs@gmail.com
-privacy: pure-mathematics-formulas-privacy
-terms: pure-mathematics-formulas-terms
+privacy: al-pure-mathematics-privacy
+terms: al-pure-mathematics-terms
 ---
 
-Pure Mathematics Formulas is a formula reference for the Sri Lankan A/L Combined
+A/L Pure Mathematics is a formula reference for the Sri Lankan A/L Combined
 Mathematics syllabus, written entirely in Sinhala. Fourteen topics cover the formulas
 students need, laid out for fast lookup rather than for reading end to end.
 
