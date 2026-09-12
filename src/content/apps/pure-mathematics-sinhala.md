@@ -6,13 +6,14 @@ category: Education
 status: live
 badge: 2.0 in development
 order: 2
-accent: '#16E5A4'
-accentDeep: '#075C42'
+accent: '#1050A4'
+accentDeep: '#0A2F63'
 packageId: com.crunchcode.puremathematicssinhala
 version: '1.12'
 platforms: [android]
 playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.puremathematicssinhala
 icon: pure-mathematics-sinhala/icon.png
+feature: pure-mathematics-sinhala/feature.png
 screenshots: []
 features:
   - title: Fourteen topics

@@ -5,9 +5,17 @@ import { resolveImage } from '../lib/images';
 interface Props {
   screenshots: string[];
   tablet?: string[];
+  feature?: string;
   appName: string;
 }
-const { screenshots, tablet = [], appName } = Astro.props;
+const { screenshots, tablet = [], feature, appName } = Astro.props;
+
+/*
+ * Spec §6.3: an app with no screenshots falls back to its feature graphic, and
+ * if it has neither, the section is omitted entirely — a page with nothing to
+ * show must still look finished rather than carrying an empty band.
+ */
+const featureImg = screenshots.length === 0 && feature ? await resolveImage(feature) : null;
 
 /*
  * These are the pre-framed marketing panels from each app's listing-resources
@@ -52,6 +60,26 @@ const hasTablet = tablet.length === screenshots.length && tablet.length > 0;
   )
 }
 
+{
+  featureImg && (
+    <section class="rail-section" aria-labelledby="shots-h">
+      <div class="wrap">
+        <h2 id="shots-h">A look at the app</h2>
+        <Image
+          src={featureImg}
+          alt={`${appName} feature graphic`}
+          widths={[480, 760, 1120, 1488]}
+          format="webp"
+          sizes="(max-width: 1200px) 92vw, 1120px"
+          loading="lazy"
+          class="feature"
+        />
+        <p class="note mono">// screenshots land here when the 2.0 listing is refreshed</p>
+      </div>
+    </section>
+  )
+}
+
 <style>
   .rail-section {
     background: var(--rail);
@@ -92,5 +120,11 @@ const hasTablet = tablet.length === screenshots.length && tablet.length > 0;
     font-size: 0.6875rem;
     color: var(--ink-3);
     margin-top: 14px;
+  }
+  .feature {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
   }
 </style>

@@ -16,7 +16,7 @@ published on Google Play:
 | Package | `com.crunchcodelabs.mybooktrail` | `com.crunchcode.puremathematicssinhala` |
 | Version | 1.30 (live) | 1.12 live, 2.0 in development |
 | Category | Books & Reference | Education |
-| Store assets | icon, feature graphic, 8 phone + 8 tablet panels | 512px web icon only |
+| Store assets | icon, feature graphic, 8 phone + 8 tablet panels | icon + feature graphic, no screenshots |
 | Legal pages | written (privacy 44KB, terms 24KB) | not yet written |
 | Data collection | AdMob + Meta Audience Network; Google Drive `appdata` sync | none in 2.0 (ads removed, zero runtime permissions) |
 
@@ -85,7 +85,7 @@ Per-app accents:
 | App | Accent | Source |
 | --- | --- | --- |
 | My Book Trail | `#0C7C81` teal, deep `#053C40` | sampled from the shipped Play icon |
-| Pure Mathematics Sinhala | `#16E5A4` green, deep `#075C42` | sampled from `ic_launcher-web.png` |
+| Pure Mathematics Sinhala | `#1050A4` blue, deep `#0A2F63` | sampled from the 2026-09-12 Play icon |
 
 ---
 
@@ -357,8 +357,8 @@ These do not block implementation but must be resolved before the site is author
 2. **Pure Mathematics Sinhala legal copy.** Must be written. 2.0 removes ads and all runtime
    permissions, so it is a genuinely different document from My Book Trail's.
 3. ~~Pure Mathematics Sinhala accent colour~~ — resolved: `#16E5A4` / `#075C42`, sampled from the launcher icon.
-4. **Pure Mathematics Sinhala store screenshots** — none exist. The page ships with the
-   empty state (§6.3) until they do.
+4. **Pure Mathematics Sinhala store screenshots** — still none. The page shows its feature
+   graphic instead (§6.3); real screenshots replace it by filling in `screenshots:`.
 5. **Play listing URL for Pure Mathematics Sinhala** — needs confirming against the live
    listing rather than constructed from the package id.
 6. **`crunchcodelabs.com`** — not owned today. §7.2 keeps the migration cheap.

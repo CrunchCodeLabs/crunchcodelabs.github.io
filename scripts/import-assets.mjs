@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, access } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SIBLINGS = resolve(ROOT, '..');
@@ -19,8 +20,8 @@ const JOBS = [
   {
     slug: 'my-book-trail',
     files: [
-      [join(SIBLINGS, 'MyBookTrail/listing-resources/apk-graphics/play_store_512.png'), 'icon.png'],
-      [join(SIBLINGS, 'MyBookTrail/listing-resources/apk-graphics/feature-graphic-1024x500.png'), 'feature.png'],
+      [join(SIBLINGS, 'MyBookTrail/listing-resources/playstore-graphics/app_icon_512x512.png'), 'icon.png'],
+      [join(SIBLINGS, 'MyBookTrail/listing-resources/playstore-graphics/feature_graphic_1024x500.png'), 'feature.png'],
     ],
     dirs: [
       [join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-mobile'), 'screens'],
@@ -29,10 +30,25 @@ const JOBS = [
   },
   {
     slug: 'pure-mathematics-sinhala',
-    files: [
-      [join(SIBLINGS, 'PureMathematicsSinhala/app/src/main/ic_launcher-web.png'), 'icon.png'],
-    ],
+    files: [],
     dirs: [],
+    // Play graphics ship as .jfif — JPEG under an extension neither the asset
+    // glob nor astro:assets matches. Re-encoded to PNG on import.
+    convert: [
+      [
+        join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/playstore_graphics/app_icon.jfif'),
+        'icon.png',
+        512,
+      ],
+      [
+        join(
+          SIBLINGS,
+          'PureMathematicsSinhala/listing-resources/playstore_graphics/feature_graphic.jfif',
+        ),
+        'feature.png',
+        1488,
+      ],
+    ],
   },
 ];
 
@@ -51,6 +67,16 @@ for (const job of JOBS) {
     await cp(src, join(base, name));
     copied++;
     console.log(`  ${job.slug}/${name}`);
+  }
+
+  for (const [src, name, width] of job.convert ?? []) {
+    if (!(await exists(src))) {
+      missing.push(src);
+      continue;
+    }
+    await sharp(src).resize(width, null, { withoutEnlargement: true }).png().toFile(join(base, name));
+    copied++;
+    console.log(`  ${job.slug}/${name} (re-encoded from ${src.split(/[\\/]/).pop()})`);
   }
 
   for (const [src, name] of job.dirs) {

@@ -58,7 +58,12 @@ const chips = [d.category, d.platforms.map((p) => PLATFORM[p]).join(' · '), `v$
     </div>
   </section>
 
-  <ScreenshotRail screenshots={d.screenshots} tablet={d.screenshotsTablet} appName={d.name} />
+  <ScreenshotRail
+    screenshots={d.screenshots}
+    tablet={d.screenshotsTablet}
+    feature={d.feature}
+    appName={d.name}
+  />
 
   <section class="wrap about" aria-labelledby="about-h">
     <h2 id="about-h">About</h2>
