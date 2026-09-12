@@ -67,6 +67,25 @@ const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
       }
     </article>
   </div>
+
+  {/*
+    Buy Me a Coffee floating widget. Third-party script from the BMC CDN — the
+    only external runtime dependency and the only client JS on the site, added
+    at the owner's request. `is:inline` keeps Astro from bundling it so the
+    data-* attributes reach the widget intact. Scoped to this page only.
+  */}
+  <script
+    is:inline
+    data-name="BMC-Widget"
+    data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="crunchcodelabs"
+    data-description="Support me on Buy me a coffee!"
+    data-message="These apps are free and carry no subscription. If one of them has been useful, buying a coffee is a kind way to say so."
+    data-color="#26B0A1"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18"></script>
 </BaseLayout>
 
 <style>

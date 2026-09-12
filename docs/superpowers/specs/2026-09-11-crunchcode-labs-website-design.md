@@ -39,7 +39,8 @@ than studio-wide.
 
 - No CMS, admin UI, or backend.
 - No blog, changelog, or newsletter in this release.
-- No analytics or tracking of any kind on the website.
+- No analytics or tracking of any kind on the website, other than whatever the Buy Me a
+  Coffee widget sets on `/support` (see §7.3).
 - No i18n framework. Sinhala appears as app content, not as a site-wide locale.
 - No rewrite of the existing legal copy — it is migrated verbatim.
 
@@ -253,11 +254,27 @@ which matters because the screenshot set is 3.8MB of unoptimized PNG today.
 Rejected: hand-written HTML in the style of `store/site/` (does not survive past ~3 apps
 without copy-paste drift); Next.js (a server runtime that would never be used).
 
-- Astro 7, TypeScript strict, zero client JS except the screenshot rail's keyboard handler.
+- Astro 7, TypeScript strict. The only client JS is the third-party Buy Me a Coffee
+  widget on `/support` (§7.3); the screenshot rail uses native scroll-container keyboard
+  behaviour and ships no JS of its own.
 - `@astrojs/sitemap`; `astro:assets` → WebP with responsive `srcset`, lazy below the fold.
 - No CSS framework. Design tokens as CSS custom properties, per-app accent injected as
   inline custom properties on the page root.
-- No runtime dependency on any CDN.
+- One runtime CDN dependency: the Buy Me a Coffee widget on `/support` only (§7.3).
+
+### 7.3 Buy Me a Coffee widget
+
+`/support` loads `https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js` and renders a
+floating donate button, added at the owner's request on 2026-09-12.
+
+This is a deliberate exception to the two rules above — it is the site's only external
+runtime dependency and its only client-side JavaScript. It is scoped to `/support`, so no
+other page (and in particular no legal page) loads third-party code. The tag carries
+`is:inline` so Astro emits it verbatim rather than bundling it, which would strip the
+`data-*` attributes the widget reads its configuration from.
+
+The plain text link to the same destination is kept alongside it, so the donate path still
+works if the widget is blocked or fails to load.
 
 ### 7.1 Repository
 
