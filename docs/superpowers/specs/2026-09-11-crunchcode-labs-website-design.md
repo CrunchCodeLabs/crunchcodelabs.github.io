@@ -39,7 +39,8 @@ than studio-wide.
 
 - No CMS, admin UI, or backend.
 - No blog, changelog, or newsletter in this release.
-- No analytics or tracking of any kind on the website.
+- No first-party analytics or tracking. The Buy Me a Coffee widget on `/` sets its own
+  cookies (§7.3).
 - No i18n framework. Sinhala appears as app content, not as a site-wide locale.
 - No rewrite of the existing legal copy — it is migrated verbatim.
 
@@ -253,22 +254,33 @@ which matters because the screenshot set is 3.8MB of unoptimized PNG today.
 Rejected: hand-written HTML in the style of `store/site/` (does not survive past ~3 apps
 without copy-paste drift); Next.js (a server runtime that would never be used).
 
-- Astro 7, TypeScript strict, zero client JS. The screenshot rail uses native
-  scroll-container keyboard behaviour rather than a handler of its own.
+- Astro 7, TypeScript strict. The only client JS is the third-party Buy Me a Coffee
+  widget on `/` (§7.3); the screenshot rail uses native scroll-container keyboard
+  behaviour and ships no JS of its own.
 - `@astrojs/sitemap`; `astro:assets` → WebP with responsive `srcset`, lazy below the fold.
 - No CSS framework. Design tokens as CSS custom properties, per-app accent injected as
   inline custom properties on the page root.
-- No runtime dependency on any CDN.
+- Two CDN dependencies, both Buy Me a Coffee and both confined to `/` and `/support`
+  (§7.3). No legal page loads third-party code.
 
 ### 7.3 Donations
 
-`/support` carries a "Buy me a coffee" button under the **Support the work** heading,
-linking to `https://buymeacoffee.com/crunchcodelabs`.
+Buy Me a Coffee appears in two forms, each on exactly one page:
 
-It is an ordinary styled anchor, not BMC's widget script. The script was tried first and
-reverted: it only renders as a fixed floating overlay, it cannot sit in the page flow, and
-it would have been the site's only CDN dependency, only client-side JavaScript and only
-cookie source. The button uses BMC's teal `#26B0A1` so it still reads as BMC.
+| Page | Form | Loads |
+| --- | --- | --- |
+| `/` | Floating widget, bottom right | `cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js` |
+| `/support` | Official yellow button, inline under **Support the work** | `cdn.buymeacoffee.com/buttons/v2/default-yellow.png` |
+
+The widget cannot be placed inline — `data-position` only chooses a corner — which is why
+the support page uses the button image instead. The script tag carries `is:inline`: Astro
+would otherwise bundle it and strip the `data-*` attributes it reads its configuration
+from, leaving it to load and silently do nothing.
+
+These are the site's only external runtime dependencies and its only client-side
+JavaScript, and they are a deliberate exception to §1.2 and §7. **No legal page loads
+either**, which is checked on every build — a privacy policy that itself pulls in
+third-party code is a poor look under Play review.
 
 ### 7.1 Repository
 

@@ -50,6 +50,24 @@ const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
       {apps.map((app) => <AppCard app={app} />)}
     </div>
   </section>
+
+  {/*
+    Buy Me a Coffee floating widget, homepage only. `is:inline` stops Astro
+    bundling the tag — bundling strips the data-* attributes the widget reads
+    its entire configuration from, and it would load and silently do nothing.
+  */}
+  <script
+    is:inline
+    data-name="BMC-Widget"
+    data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="crunchcodelabs"
+    data-description="Support me on Buy me a coffee!"
+    data-message="These apps are free and carry no subscription. If one of them has been useful, buying a coffee is a kind way to say so."
+    data-color="#26B0A1"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18"></script>
 </BaseLayout>
 
 <style>

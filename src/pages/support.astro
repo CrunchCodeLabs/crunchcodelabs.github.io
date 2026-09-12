@@ -59,24 +59,18 @@ const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
                 buying a coffee is a kind way to say so.
               </p>
             </div>
-            <a class="bmc" href={donate} rel="noopener">
-              <svg
-                class="cup"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"></path>
-                <path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"></path>
-                <path d="M7 3c0 1-1 1.5-1 2.5S7 7 7 7"></path>
-                <path d="M11 3c0 1-1 1.5-1 2.5S11 7 11 7"></path>
-                <path d="M15 3c0 1-1 1.5-1 2.5S15 7 15 7"></path>
-              </svg>
-              Buy me a coffee
+            <a
+              class="bmc"
+              href="https://www.buymeacoffee.com/crunchcodelabs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me a Coffee"
+                width="217"
+                height="60"
+              />
             </a>
           </>
         )
@@ -138,31 +132,20 @@ const donate = apps.find((a) => a.data.support.donate)?.data.support.donate;
     font-weight: 600;
   }
 
-  /* Buy Me a Coffee, in the page flow rather than as a floating overlay.
-     BMC's own teal, so it still reads as BMC without their script. */
+  /* BMC's official button image, in the page flow. width/height are set on the
+     <img> as well as here so the box is reserved before the CDN image lands. */
   .bmc {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
+    display: inline-block;
     margin-top: 4px;
-    background: #26b0a1;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    padding: 11px 20px;
+    line-height: 0;
     border-radius: 10px;
-    transition:
-      background 0.15s ease,
-      transform 0.15s ease;
   }
-  .bmc:hover {
-    background: #1f9789;
+  .bmc img {
+    height: 60px;
+    width: 217px;
+    transition: transform 0.15s ease;
+  }
+  .bmc:hover img {
     transform: translateY(-1px);
-  }
-  .cup {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
   }
 </style>

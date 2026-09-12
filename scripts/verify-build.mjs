@@ -74,10 +74,14 @@ for (const file of htmlFiles) {
   check(!html.includes('localhost:4321'), `${rel(file)} contains a localhost URL`);
 }
 
-// 5. No base64 image blob survived the legal migration.
+// 5. Legal pages: no base64 blob from the migration, and no third-party code.
+//    A privacy policy that itself pulls in third-party scripts is a poor look
+//    under Play review, so the Buy Me a Coffee additions must stay off these pages.
 for (const file of htmlFiles.filter((f) => /\/(privacy|terms)\//.test(rel(f)))) {
   const html = await readFile(file, 'utf8');
   check(!html.includes('data:image'), `${rel(file)} contains an inlined base64 image`);
+  check(!/<script/i.test(html), `${rel(file)} contains a <script> tag`);
+  check(!/buymeacoffee/i.test(html), `${rel(file)} loads Buy Me a Coffee`);
 }
 
 /*
