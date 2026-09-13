@@ -14,7 +14,15 @@ platforms: [android]
 playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.puremathematicssinhala
 icon: al-pure-mathematics/icon.png
 feature: al-pure-mathematics/feature.png
-screenshots: []
+screenshots:
+  - al-pure-mathematics/screens/01-topics-phone.png
+  - al-pure-mathematics/screens/02-trig-phone.png
+  - al-pure-mathematics/screens/03-limits-phone.png
+  - al-pure-mathematics/screens/04-search-phone.png
+  - al-pure-mathematics/screens/05-bookmarks-phone.png
+  - al-pure-mathematics/screens/06-quiz-phone.png
+  - al-pure-mathematics/screens/07-quiz-answer-phone.png
+  - al-pure-mathematics/screens/08-reminder-phone.png
 features:
   - title: Fourteen topics
     body: Full formula coverage of the Sri Lankan A/L Combined Mathematics syllabus.

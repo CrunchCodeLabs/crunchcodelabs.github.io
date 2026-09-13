@@ -31,7 +31,15 @@ const JOBS = [
   {
     slug: 'al-pure-mathematics',
     files: [],
-    dirs: [],
+    dirs: [
+      // Phone mockups only. The tablet set in mockups-2.0/tablet is a phone in a
+      // phone frame on a tablet-shaped canvas — fine for a Play tablet slot, but
+      // it would add nothing here, and the rail does not render tablet assets.
+      [
+        join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/mockups-2.0/phone'),
+        'screens',
+      ],
+    ],
     // Play graphics ship as .jfif — JPEG under an extension neither the asset
     // glob nor astro:assets matches. Re-encoded to PNG on import.
     convert: [
