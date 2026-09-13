@@ -40,6 +40,19 @@ for (const page of ['/index.html', '/about/index.html', '/support/index.html', '
  * treat the inventory as unauthorized and fill drops — silently, with no build
  * or runtime error anywhere. Hence a build-time check.
  */
+/*
+ * 1a. .nojekyll must ship at the deploy root.
+ *
+ * GitHub Pages runs Jekyll over the published output unless this file is
+ * present, and Jekyll drops underscore-prefixed directories — which is exactly
+ * where Astro puts every hashed asset (/_astro/). Without it the site can
+ * deploy "successfully" and serve pages with no CSS and no images.
+ */
+check(
+  files.some((f) => rel(f) === '/.nojekyll'),
+  'Missing /.nojekyll — Jekyll would strip the /_astro/ asset directory',
+);
+
 const adsFile = files.find((f) => rel(f) === '/app-ads.txt');
 check(Boolean(adsFile), 'Missing /app-ads.txt at the site root');
 if (adsFile) {
