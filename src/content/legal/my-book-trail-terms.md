@@ -2,7 +2,7 @@
 app: my-book-trail
 kind: terms
 title: Terms & Conditions
-updated: 2026-09-12
+updated: 2026-09-13
 ---
 These Terms of Service (“Terms”) govern your use of the **My Book Trail** mobile application and any related services (collectively, the “Application”), provided by **Anjana Senanayake** (the “Service Provider”). Please read them carefully.
 

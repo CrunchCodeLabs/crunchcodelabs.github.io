@@ -2,13 +2,13 @@
 app: al-pure-mathematics
 kind: privacy
 title: Privacy Policy
-updated: 2026-09-12
+updated: 2026-09-13
 ---
 **A/L ශුද්ධ ගණිතය** (A/L Pure Mathematics)  
 Android package `com.crunchcode.puremathematicssinhala`  
-Effective 12 September 2026
+Effective 13 September 2026
 
-**In short.** This app has no accounts and no servers of its own. Your bookmarks, quiz progress and reminder settings stay on your phone. The only information that leaves your device is an advertising identifier, read by Google AdMob, and only if you open the Daily Quiz. If you never open it, no advertising software ever starts.
+**In short.** This app has no accounts and no servers of its own. Your bookmarks, quiz progress and reminder settings stay on your phone. The only information that leaves your device is an advertising identifier, read by Google AdMob so that it can show the advertisements that pay for the app.
 
 ## 1\. Who this is from
 
@@ -28,11 +28,16 @@ The formulas, diagrams and quiz questions are all packaged inside the app. Readi
 
 ## 3\. Advertising
 
-The Daily Quiz gives you three questions a day at no cost. If you want more on the same day, you may choose to watch a short video advertisement, which unlocks three more. That is the only advertising in the app: there are no banners, and nothing is shown to you unless you tap the button asking for it.
+There are two kinds of advertisement in the app, and they behave differently:
+
+*   **A banner** along the bottom of the screen. It appears on the topic pages, search, bookmarks and the quiz. It does _not_ appear on the home screen — the list of topics you see when the app opens. It never covers what you are reading, and a line separates it from the content above it.
+*   **A video you choose to watch.** The Daily Quiz gives you three questions a day at no cost; if you want more on the same day, you may watch a short video to unlock three more. Nothing is shown unless you tap the button asking for it, and you are never required to.
+
+There are no full-screen advertisements that interrupt you, and nothing plays on its own.
 
 Advertisements are supplied by **Google AdMob**. To do that, Google reads your device's **advertising identifier** — a resettable ID that Android provides for this purpose — along with technical information such as your device type and approximate region. This is used to select and measure advertisements. We do not receive it, and we do not receive any report identifying you.
 
-**This only happens inside the Daily Quiz.** The advertising software is started the first time you open that screen, not when the app launches. If you use the app only to look up formulas, to search, or to keep bookmarks, no advertising software runs and no advertising identifier is read.
+**When this starts.** The advertising software is not started when the app launches. It starts the first time you open a screen that carries an advertisement, which means the first time you move away from the home screen. Opening the app and closing it again starts nothing.
 
 How Google uses data from apps that use its services is described at [policies.google.com/technologies/partner-sites](https://policies.google.com/technologies/partner-sites).
 
@@ -42,7 +47,7 @@ If you are in the European Economic Area or the United Kingdom, you are asked fo
 
 Everywhere in the world, Android lets you reset or delete your advertising identifier in _Settings → Privacy → Ads_. Deleting it stops personalised advertising across all your apps, not just this one.
 
-You are never required to watch an advertisement. The three daily questions, and the whole formula reference, work without one.
+You are never required to watch an advertisement. The three daily questions, and the whole formula reference, work without one — and the entire reference works with no internet connection at all, in which case no advertisement is fetched and the banner simply does not appear.
 
 ## 5\. Backup
 
@@ -50,7 +55,7 @@ Android's own backup feature is enabled for this app, which is the default. That
 
 ## 6\. Permissions, and why
 
-*   **Internet** and **network state** — used only to fetch advertisements in the Daily Quiz. The app's content is local and needs neither.
+*   **Internet** and **network state** — used only to fetch advertisements. Every formula, diagram and quiz question is packaged inside the app and needs neither.
 *   **Advertising ID** — required by Google AdMob, as described above.
 *   **Notifications** — used only for the revision reminder, and only asked for at the moment you switch reminders on. If you decline, everything else still works.
 
