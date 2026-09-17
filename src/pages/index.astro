@@ -1,10 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import AppCard from '../components/AppCard.astro';
 import StoreBadges from '../components/StoreBadges.astro';
 import { byOrder } from '../lib/apps';
+
+import banner from '../assets/brand/banner.png';
+import shotBookTrail from '../assets/hero/my-book-trail.png';
+import shotPureMaths from '../assets/hero/al-pure-mathematics.png';
 
 const apps = (await getCollection('apps')).sort(byOrder);
 const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
@@ -15,29 +20,62 @@ const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
   description="An independent mobile app studio. We build focused Android apps that respect your time, your battery and your data."
 >
   <section class="hero">
+    {/*
+      The brand artwork is a white-background JPEG and its ground samples as
+      exactly #FFFFFF, so it sits on this hero with no keying and no halo. The
+      wordmark, the monospace tagline and the build/ship/iterate icons are all
+      baked into it — which is why none of them are repeated in markup below.
+    */}
+    <span class="px" style="width:11px;height:11px;background:#8F88FF;opacity:.7;top:58px;left:7%"></span>
+    <span class="px" style="width:7px;height:7px;background:#C9C4FF;top:100px;left:13%"></span>
+    <span class="px" style="width:13px;height:13px;background:#6C63FF;opacity:.22;top:156px;left:4%"></span>
+    <span class="px" style="width:8px;height:8px;background:#CFCBFF;top:44px;left:26%"></span>
+    <span class="px" style="width:9px;height:9px;background:#B9B3FF;opacity:.8;top:66px;left:85%"></span>
+    <span class="px" style="width:6px;height:6px;background:#8F88FF;opacity:.6;top:122px;left:92%"></span>
+    <span class="px" style="width:14px;height:14px;background:#D6D2FF;top:184px;left:89%"></span>
+    <span class="px" style="width:7px;height:7px;background:#9E97FF;opacity:.5;top:220px;left:76%"></span>
+
     <div class="wrap">
-      <SiteHeader onDark />
-      <div class="grid">
-        <div>
-          <h1>Apps that feel<br />good to use.</h1>
-          <p class="sub">
-            An independent studio building focused mobile tools. Private by default, free to
-            try, and never in a hurry to sell you anything.
-          </p>
-          <StoreBadges playUrl={anyPlay} name="CrunchCode Labs apps" />
-        </div>
-        <div class="phones" aria-hidden="true">
-          <div class="phone back">
-            <div class="scr">
-              <i class="t"></i><i class="l w9"></i><i class="l w6"></i><i class="b"></i><i
-                class="l w7"></i>
-            </div>
+      <SiteHeader />
+      <div class="centre">
+        <h1 class="mark">
+          <Image
+            src={banner}
+            alt="CrunchCode Labs — build · ship · iterate"
+            widths={[480, 720, 1032]}
+            sizes="(max-width: 700px) 88vw, 640px"
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </h1>
+        <p class="lede">Apps that feel good to use.</p>
+        <p class="sub">
+          An independent studio building focused mobile tools for Android. Private by default,
+          free to try, and never in a hurry to sell you anything.
+        </p>
+        <StoreBadges playUrl={anyPlay} name="CrunchCode Labs apps" />
+
+        <div class="devices">
+          <div class="dev back">
+            <Image
+              src={shotPureMaths}
+              alt="A/L Pure Mathematics, showing the topic list"
+              widths={[220, 340]}
+              sizes="150px"
+              format="webp"
+              loading="eager"
+            />
           </div>
-          <div class="phone">
-            <div class="scr">
-              <i class="t w4"></i><i class="b tall"></i><i class="l w9"></i><i class="l w7"></i><i
-                class="l w5"></i>
-            </div>
+          <div class="dev">
+            <Image
+              src={shotBookTrail}
+              alt="My Book Trail, showing a reading library"
+              widths={[260, 400]}
+              sizes="172px"
+              format="webp"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
@@ -71,101 +109,81 @@ const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
 </BaseLayout>
 
 <style>
-  /*
-   * Text sits on --accent-deep, never the flat --accent: white on #6C63FF is
-   * 4.32:1, under the 4.5:1 AA body threshold. The bright accent is a bloom in
-   * the lower right, away from every run of text.
-   */
   .hero {
-    background:
-      radial-gradient(58% 52% at 88% 84%, var(--accent) 0%, transparent 68%),
-      linear-gradient(
-        176deg,
-        var(--accent-deep) 0%,
-        var(--accent-deep) 58%,
-        color-mix(in srgb, var(--accent-deep) 55%, var(--ground)) 80%,
-        var(--ground) 100%
-      );
-    padding-bottom: 56px;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 44px;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 32px;
-    align-items: end;
-    padding-top: 40px;
+  .hero .wrap {
+    position: relative;
+    z-index: 2;
   }
-  h1 {
-    font-size: clamp(2.25rem, 6vw, 3.5rem);
+
+  /* The pixel motif from the brand artwork, carried past the image's edges. */
+  .px {
+    position: absolute;
+    z-index: 1;
+    border-radius: 1px;
+  }
+
+  .centre {
+    text-align: center;
+    padding-top: 26px;
+  }
+
+  .mark {
+    margin: 0 auto;
+    max-width: 640px;
+    line-height: 0;
+  }
+  .mark :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .lede {
+    font-size: clamp(1.375rem, 3.4vw, 1.875rem);
     font-weight: 700;
-    color: #fff;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 18px 0 0;
   }
   .sub {
-    margin: 16px 0 26px;
-    max-width: 38ch;
-    color: #fff;
     font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    color: var(--ink-2);
+    max-width: 46ch;
+    margin: 12px auto 22px;
   }
-  .phones {
+  .centre :global(.badges) {
+    justify-content: center;
+  }
+
+  .devices {
     display: flex;
-    gap: 14px;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 34px;
   }
-  .phone {
-    width: 132px;
-    height: 250px;
-    border-radius: 20px;
+  .dev {
+    border-radius: 18px;
     background: var(--ink);
-    padding: 6px;
-    box-shadow: 0 22px 48px rgba(30, 25, 90, 0.34);
-    flex-shrink: 0;
+    padding: 5px;
+    flex: 0 0 auto;
+    width: 172px;
+    box-shadow: 0 18px 44px rgba(20, 20, 19, 0.18);
   }
-  .phone.back {
+  .dev.back {
+    width: 150px;
     transform: translateY(-22px) rotate(-5deg);
   }
-  .scr {
-    height: 100%;
-    border-radius: 15px;
-    padding: 12px 10px;
-    background: linear-gradient(165deg, #f4f3ff, #fff);
-  }
-  .scr i {
+  .dev :global(img) {
     display: block;
-    border-radius: 3px;
-  }
-  .t {
-    height: 8px;
-    width: 55%;
-    background: var(--accent);
-    margin-bottom: 10px;
-  }
-  .l {
-    height: 5px;
-    background: #e4e2f6;
-    margin-bottom: 7px;
-  }
-  .b {
-    height: 40px;
-    background: #edebff;
-    border-radius: 9px;
-    margin: 12px 0 10px;
-  }
-  .b.tall {
-    height: 56px;
-  }
-  .w4 {
-    width: 40%;
-  }
-  .w5 {
-    width: 50%;
-  }
-  .w6 {
-    width: 60%;
-  }
-  .w7 {
-    width: 70%;
-  }
-  .w9 {
-    width: 90%;
+    width: 100%;
+    height: auto;
+    border-radius: 13px;
   }
 
   .apps {
@@ -183,17 +201,16 @@ const anyPlay = apps.find((a) => a.data.playUrl)?.data.playUrl;
     max-width: 1120px;
   }
 
-  @media (max-width: 860px) {
-    .grid {
-      grid-template-columns: 1fr;
+  @media (max-width: 640px) {
+    .devices {
+      gap: 12px;
+      margin-top: 26px;
     }
-    .phones {
-      justify-content: flex-start;
-      margin-top: 8px;
+    .dev {
+      width: 138px;
     }
-    .phone {
-      width: 108px;
-      height: 204px;
+    .dev.back {
+      width: 120px;
     }
   }
 </style>

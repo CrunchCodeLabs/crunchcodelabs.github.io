@@ -60,8 +60,38 @@ const JOBS = [
   },
 ];
 
+/*
+ * Brand artwork and the two hero screenshots. The brand files ship as .jfif and
+ * .jpeg, which neither the asset glob nor astro:assets matches, and the hero
+ * devices need raw screenshots rather than the pre-framed listing panels.
+ */
+const SINGLES = [
+  ['crucnhcodelabs_banner.jfif', 'src/assets/brand/banner.png'],
+  ['crucnhcodelabs_logo.jpeg', 'src/assets/brand/logo.png'],
+  [
+    join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-raw/Screenshot_20260726_134403.png'),
+    'src/assets/hero/my-book-trail.png',
+  ],
+  [
+    join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/screenshots-2.0/01-topics.png'),
+    'src/assets/hero/al-pure-mathematics.png',
+  ],
+];
+
 let copied = 0;
 const missing = [];
+
+for (const [src, dest] of SINGLES) {
+  const from = src.includes(':') ? src : join(ROOT, src);
+  if (!(await exists(from))) {
+    missing.push(from);
+    continue;
+  }
+  await mkdir(dirname(join(ROOT, dest)), { recursive: true });
+  await sharp(from).png().toFile(join(ROOT, dest));
+  copied++;
+  console.log(`  ${dest}`);
+}
 
 for (const job of JOBS) {
   const base = join(DEST, job.slug);
