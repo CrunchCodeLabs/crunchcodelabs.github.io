@@ -2,7 +2,7 @@
 app: my-book-trail
 kind: privacy
 title: Privacy Policy
-updated: 2026-09-13
+updated: 2026-09-17
 ---
 This privacy policy applies to the **My Book Trail** app for mobile devices, together with any related services operated by **Anjana Senanayake** (collectively, the “Application”). Anjana Senanayake is hereby referred to as the “Service Provider”.
 

@@ -2,10 +2,10 @@
 app: al-pure-mathematics
 kind: privacy
 title: Privacy Policy
-updated: 2026-09-13
+updated: 2026-09-17
 ---
 **A/L ශුද්ධ ගණිතය** (A/L Pure Mathematics)  
-Android package `com.crunchcode.puremathematicssinhala`  
+Android package `com.crunchcode.alpuremathematics`  
 Effective 13 September 2026
 
 **In short.** This app has no accounts and no servers of its own. Your bookmarks, quiz progress and reminder settings stay on your phone. The only information that leaves your device is an advertising identifier, read by Google AdMob so that it can show the advertisements that pay for the app.
@@ -55,7 +55,7 @@ Android's own backup feature is enabled for this app, which is the default. That
 
 ## 6\. Permissions, and why
 
-*   **Internet** and **network state** — used only to fetch advertisements. Every formula, diagram and quiz question is packaged inside the app and needs neither.
+*   **Internet** and **network state** — used to fetch advertisements, and to ask the Play Store whether an update exists and to show its rating prompt. Every formula, diagram and quiz question is packaged inside the app and needs neither: the whole reference works with no connection at all.
 *   **Advertising ID** — required by Google AdMob, as described above.
 *   **Notifications** — used only for the revision reminder, and only asked for at the moment you switch reminders on. If you decline, everything else still works.
 

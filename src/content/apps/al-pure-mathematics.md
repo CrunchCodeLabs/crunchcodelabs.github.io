@@ -4,14 +4,13 @@ nativeName: A/L ශුද්ධ ගණිතය
 tagline: Every A/L Combined Mathematics formula, in Sinhala, in your pocket.
 category: Education
 status: live
-badge: 2.0 in development
 order: 2
 accent: '#1050A4'
 accentDeep: '#0A2F63'
-packageId: com.crunchcode.puremathematicssinhala
-version: '1.12'
+packageId: com.crunchcode.alpuremathematics
+version: '2.1'
 platforms: [android]
-playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.puremathematicssinhala
+playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.alpuremathematics
 icon: al-pure-mathematics/icon.png
 feature: al-pure-mathematics/feature.png
 screenshots:
@@ -47,5 +46,6 @@ towards the topics you keep getting wrong, and every question links straight bac
 section it came from — so a wrong answer takes you to the formula rather than just marking
 you down. An optional reminder nudges you when it is time.
 
-A 2.0 release is in development: a full Jetpack Compose rewrite with dark mode, full-text
-search across every topic, section bookmarks, and the daily quiz.
+Version 2.0 rebuilt the app from the ground up in Jetpack Compose: dark mode, full-text
+search across all fourteen topics, section bookmarks, and the daily quiz drawing on a bank
+of 212 questions.
