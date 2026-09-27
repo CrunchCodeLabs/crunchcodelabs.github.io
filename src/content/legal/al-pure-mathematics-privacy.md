@@ -2,13 +2,13 @@
 app: al-pure-mathematics
 kind: privacy
 title: Privacy Policy
-updated: 2026-09-17
+updated: 2026-09-27
 ---
-**A/L ශුද්ධ ගණිතය** (A/L Pure Mathematics)  
+**A/L Combined Maths** — formulas in Sinhala for A/L Combined Mathematics  
 Android package `com.crunchcode.alpuremathematics`  
-Effective 13 September 2026
+Effective 26 September 2026
 
-**In short.** This app has no accounts and no servers of its own. Your bookmarks, quiz progress and reminder settings stay on your phone. The only information that leaves your device is an advertising identifier, read by Google AdMob so that it can show the advertisements that pay for the app.
+**In short.** This app has no accounts and no servers of its own. Your bookmarks, quiz progress and reminder settings stay on your phone. The only information that leaves your device is an advertising identifier, read by Google AdMob and by Meta so that the advertisements that pay for the app can be shown and measured.
 
 ## 1\. Who this is from
 
@@ -41,6 +41,16 @@ Advertisements are supplied by **Google AdMob**. To do that, Google reads your d
 
 How Google uses data from apps that use its services is described at [policies.google.com/technologies/partner-sites](https://policies.google.com/technologies/partner-sites).
 
+## 3a. Meta, and how you found this app
+
+This app is sometimes advertised on Facebook and Instagram. So that Meta can tell whether someone who saw one of those advertisements went on to install the app, the app reports two things to Meta: that it was installed, and that it was opened. Meta reads the same resettable **advertising identifier** described above to match those up.
+
+That is the whole of it. There is no Facebook login, no sharing to Facebook, and no Facebook or Instagram content anywhere in the app. Nothing you read, search for, bookmark or answer is sent to Meta, and Meta is not told who you are.
+
+**This is subject to the same consent as the advertisements.** Nothing belonging to Meta runs until you have been asked and have agreed — on a first launch with no connection, or if you decline, no Meta software starts at all and nothing is reported.
+
+How Meta uses data it receives from apps is described at [facebook.com/about/privacy](https://www.facebook.com/about/privacy).
+
 ## 4\. Your choices about advertising
 
 If you are in the European Economic Area or the United Kingdom, you are asked for your consent before any advertising software starts, using Google's consent form. You can change that choice at any time from **Privacy options** in the app's menu.
@@ -56,7 +66,7 @@ Android's own backup feature is enabled for this app, which is the default. That
 ## 6\. Permissions, and why
 
 *   **Internet** and **network state** — used to fetch advertisements, and to ask the Play Store whether an update exists and to show its rating prompt. Every formula, diagram and quiz question is packaged inside the app and needs neither: the whole reference works with no connection at all.
-*   **Advertising ID** — required by Google AdMob, as described above.
+*   **Advertising ID** — required by Google AdMob and by Meta, as described above.
 *   **Notifications** — used only for the revision reminder, and only asked for at the moment you switch reminders on. If you decline, everything else still works.
 
 The app asks for no other permissions. It does not access your contacts, location, camera, microphone, files, or call history.
@@ -75,7 +85,7 @@ This app is made for students preparing for the Sri Lankan G.C.E. Advanced Level
 
 ## 9\. Deleting your information
 
-Because everything is local, you remove it by removing it from your device: use _Settings → Apps → A/L ශුද්ධ ගණිතය → Storage → Clear data_, or simply uninstall the app. Nothing is left behind on our side, because nothing was ever sent there. If Android backup is on, also clear the app from your Google backup as described in section 5.
+Because everything is local, you remove it by removing it from your device: use _Settings → Apps → A/L Combined Maths → Storage → Clear data_, or simply uninstall the app. Nothing is left behind on our side, because nothing was ever sent there. If Android backup is on, also clear the app from your Google backup as described in section 5.
 
 ## 10\. Changes to this policy
 
