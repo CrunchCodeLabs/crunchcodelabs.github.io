@@ -2,7 +2,7 @@
 app: my-book-trail
 kind: terms
 title: Terms & Conditions
-updated: 2026-09-17
+updated: 2026-09-27
 ---
 These Terms of Service (“Terms”) govern your use of the **My Book Trail** mobile application and any related services (collectively, the “Application”), provided by **Anjana Senanayake** (the “Service Provider”). Please read them carefully.
 
@@ -64,9 +64,7 @@ These Terms apply until terminated. Your licence ends automatically if you fail 
 
 ## 12 Governing Law
 
-These Terms are governed by and construed in accordance with the laws of **\[your country / jurisdiction\]**, without regard to its conflict-of-law principles. You agree to the exclusive jurisdiction of the courts located there for any dispute arising out of or relating to these Terms or the Application.
-
-**Before publishing:** replace “\[your country / jurisdiction\]” with the country whose laws should apply (usually where you, the developer, are based).
+These Terms are governed by and construed in accordance with the laws of **Sri Lanka**, without regard to its conflict-of-law principles. You agree to the exclusive jurisdiction of the courts located there for any dispute arising out of or relating to these Terms or the Application.
 
 ## 13 Changes to These Terms
 

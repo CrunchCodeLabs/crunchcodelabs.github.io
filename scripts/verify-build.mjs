@@ -120,6 +120,12 @@ for (const file of htmlFiles.filter((f) => /\/(privacy|terms)\//.test(rel(f)))) 
   check(!html.includes('data:image'), `${rel(file)} contains an inlined base64 image`);
   check(!/<script/i.test(html), `${rel(file)} contains a <script> tag`);
   check(!/buymeacoffee/i.test(html), `${rel(file)} loads Buy Me a Coffee`);
+  // Unfilled template text. A "[your country / jurisdiction]" placeholder and
+  // its "Before publishing" note shipped live on a terms page once, because
+  // the migration copies legal text verbatim and nothing looked for it.
+  const text = html.replace(/<[^>]+>/g, ' ');
+  const placeholder = text.match(/\[(your|insert|enter|company|country)[^\]]*\]|Before publishing:|\bTODO\b|\bTBD\b|lorem ipsum/i);
+  check(!placeholder, `${rel(file)} contains template text: "${placeholder?.[0]}"`);
 }
 
 /*
