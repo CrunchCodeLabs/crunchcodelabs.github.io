@@ -7,7 +7,7 @@ order: 1
 accent: '#0C7C81'
 accentDeep: '#053C40'
 packageId: com.crunchcodelabs.mybooktrail
-version: '1.30'
+version: '2.00'
 platforms: [android]
 playUrl: https://play.google.com/store/apps/details?id=com.crunchcodelabs.mybooktrail
 icon: my-book-trail/icon.png
@@ -19,7 +19,7 @@ screenshots:
   - my-book-trail/screens/04-add-in-seconds.png
   - my-book-trail/screens/05-insights-goals.png
   - my-book-trail/screens/06-organize.png
-  - my-book-trail/screens/07-make-it-yours.png
+  - my-book-trail/screens/07-set-your-goal.png
   - my-book-trail/screens/08-safe-portable.png
 screenshotsTablet:
   - my-book-trail/screens-tablet/01-your-library.png
@@ -28,17 +28,17 @@ screenshotsTablet:
   - my-book-trail/screens-tablet/04-add-in-seconds.png
   - my-book-trail/screens-tablet/05-insights-goals.png
   - my-book-trail/screens-tablet/06-organize.png
-  - my-book-trail/screens-tablet/07-make-it-yours.png
+  - my-book-trail/screens-tablet/07-set-your-goal.png
   - my-book-trail/screens-tablet/08-safe-portable.png
 features:
   - title: Add books in seconds
     body: Search Google Books, scan a barcode, or snap the cover with your camera.
   - title: Shelves and labels
     body: Read, Reading and Wishlist are one tap apart, plus any labels you invent.
-  - title: Stats and yearly goals
-    body: See what you finished, how fast, and whether you are on pace.
+  - title: A reading trail to climb
+    body: Set a goal and every book you finish lights a lantern on the way up.
   - title: Yours, on your device
-    body: Your library is stored locally, with optional private backup to your own Google Drive.
+    body: Stored locally, with private Google Drive backup and Excel export and import.
 support:
   email: crunchcodelabs@gmail.com
   donate: https://buymeacoffee.com/crunchcodelabs

@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, access } from 'node:fs/promises';
+import { cp, mkdir, readdir, access, rm } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -24,8 +24,8 @@ const JOBS = [
       [join(SIBLINGS, 'MyBookTrail/listing-resources/playstore-graphics/feature_graphic_1024x500.png'), 'feature.png'],
     ],
     dirs: [
-      [join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-mobile'), 'screens'],
-      [join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-tablet'), 'screens-tablet'],
+      [join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-mobile-canopy'), 'screens'],
+      [join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-tablet-canopy'), 'screens-tablet'],
     ],
   },
   {
@@ -69,7 +69,7 @@ const SINGLES = [
   ['crucnhcodelabs_banner.jfif', 'src/assets/brand/banner.png'],
   ['crucnhcodelabs_logo.jpeg', 'src/assets/brand/logo.png'],
   [
-    join(SIBLINGS, 'MyBookTrail/listing-resources/screenshots-raw/Screenshot_20260726_134403.png'),
+    join(SIBLINGS, 'MyBookTrail/listing-resources/site/raw-canopy/library.png'),
     'src/assets/hero/my-book-trail.png',
   ],
   [
@@ -123,6 +123,9 @@ for (const job of JOBS) {
       continue;
     }
     const target = join(base, name);
+    // Start from empty so a renamed or dropped panel does not linger — the
+    // canopy set replaced 07-make-it-yours with 07-set-your-goal.
+    await rm(target, { recursive: true, force: true });
     await mkdir(target, { recursive: true });
     for (const f of await readdir(src)) {
       if (!/\.(png|jpe?g|webp)$/i.test(f)) continue;
