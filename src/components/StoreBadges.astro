@@ -26,6 +26,16 @@ const { playUrl, appStoreUrl, name } = Astro.props;
       </a>
     )
   }
+  {
+    /* An unreleased app has no store link yet. Without this the hero ends in
+       empty space, with nothing saying the app is on its way. */
+    !playUrl && !appStoreUrl && (
+      <span class="badge soon">
+        <span class="small">Coming soon to</span>
+        <span class="big">Google Play</span>
+      </span>
+    )
+  }
 </div>
 
 <style>
@@ -42,8 +52,15 @@ const { playUrl, appStoreUrl, name } = Astro.props;
     padding: 9px 18px;
     line-height: 1.25;
   }
-  .badge:hover {
+  a.badge:hover {
     background: #000;
+  }
+  /* Not a link, so it must not look pressable: outlined, not filled. It only
+     appears in an app hero, which always sits on the app's deep accent. */
+  .soon {
+    background: transparent;
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+    padding: 8px 17px;
   }
   .small {
     display: block;
