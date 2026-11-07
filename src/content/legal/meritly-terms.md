@@ -19,7 +19,9 @@ Policy. If you do not agree, please do not use the app.
 
 ## 2. What the app is
 
-Meritly is a free personal journal for recording good deeds. You can add merits with a
+Meritly is a free personal journal for recording good deeds. It contains no advertising,
+no in-app purchases and no subscriptions, and it is not sold or monetised in any way. You
+can add merits with a
 date, description, categories and photos, search and filter them, view monthly and yearly
 insights, set goals with reminders, and optionally back up your data to your own Google
 Drive.

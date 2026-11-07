@@ -31,9 +31,10 @@ features:
     body: Monthly and yearly goals, with daily or weekly reminders that carry an inspiring quote.
   - title: Private, calm and yours
     body: Kept on your phone, with optional backup to your own Google Drive.
+  - title: Free, with nothing to sell
+    body: No ads, no purchases, no subscriptions. Made as a good deed, not a business.
 support:
   email: crunchcodelabs@gmail.com
-  donate: https://buymeacoffee.com/crunchcodelabs
 privacy: meritly-privacy
 terms: meritly-terms
 ---
@@ -46,5 +47,10 @@ Over time your merits become a story you can look back on. Search finds any of t
 seconds, and the insights show how your month and your year are going. Set a monthly or
 yearly goal, and Meritly can remind you with a quote about doing good.
 
-There are no ads and no accounts. Everything is stored on your phone, and you can back it
-up to your own Google Drive if you choose.
+Meritly is completely free, and it will stay that way. There are no ads, no in-app
+purchases, no subscriptions and nothing to unlock, and the app makes no money in any
+form. It was made as a good deed of its own, a small gift to anyone who wants to do a
+little more good in the world.
+
+There are no accounts either. Everything is stored on your phone, and you can back it up
+to your own Google Drive if you choose.
