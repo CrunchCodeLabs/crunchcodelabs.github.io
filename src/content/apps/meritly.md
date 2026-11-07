@@ -10,6 +10,7 @@ packageId: com.crunchcodelabs.meritly
 version: '1.0.0'
 platforms: [android]
 icon: meritly/icon.png
+feature: meritly/feature.png
 screenshots:
   - meritly/screens/01.png
   - meritly/screens/02.png

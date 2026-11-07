@@ -60,9 +60,11 @@ const JOBS = [
   },
   {
     slug: 'meritly',
-    // No feature graphic yet — the page leads with the screenshot rail, which
-    // only falls back to a feature graphic when there are no screenshots.
     files: [[join(SIBLINGS, 'Meritly/listing-resources/play_store_icon_512.png'), 'icon.png']],
+    // .jfif again (the misspelt name is the source file's). Re-encoded to PNG.
+    convert: [
+      [join(SIBLINGS, 'Meritly/listing-resources/feature_graphhic.jfif'), 'feature.png', 1488],
+    ],
     // Phone panels only, for the same reason as A/L Pure Mathematics: the rail
     // does not render the tablet sets, so they would ship as dead weight.
     dirs: [[join(SIBLINGS, 'Meritly/listing-resources/screenshots/phone'), 'screens']],
