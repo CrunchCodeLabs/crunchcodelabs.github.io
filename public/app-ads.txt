@@ -1,6 +1,8 @@
 # app-ads.txt — IAB Tech Lab Authorized Sellers for Apps
 # Must be served from the root of the domain listed as the developer website
-# on the Google Play listing, i.e. https://crunchcodelabs.github.io/app-ads.txt
+# on the Google Play listing. Crawlers drop a leading "www." and fetch
+# https://crunchcodelabs.dev/app-ads.txt, so the bare domain must resolve too
+# (GitHub Pages then redirects it to www, which crawlers follow).
 #
 # Meta Audience Network
 facebook.com, 368837391253650, DIRECT, c3e20eee3f780d68

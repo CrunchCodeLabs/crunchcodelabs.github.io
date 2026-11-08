@@ -12,13 +12,13 @@ describe('urls', () => {
   });
 
   it('has no base path in the site origin', () => {
-    expect(SITE).toBe('https://crunchcodelabs.github.io');
+    expect(SITE).toBe('https://www.crunchcodelabs.dev');
     expect(new URL(SITE).pathname).toBe('/');
   });
 
   it('makes absolute URLs for canonical tags', () => {
     expect(absolute('/apps/my-book-trail/privacy/'))
-      .toBe('https://crunchcodelabs.github.io/apps/my-book-trail/privacy/');
+      .toBe('https://www.crunchcodelabs.dev/apps/my-book-trail/privacy/');
   });
 
   it('rejects a slug that is not URL-safe', () => {

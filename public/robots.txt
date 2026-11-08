@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crunchcodelabs.github.io/sitemap-index.xml
+Sitemap: https://www.crunchcodelabs.dev/sitemap-index.xml

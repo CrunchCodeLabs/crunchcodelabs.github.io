@@ -1,4 +1,4 @@
-export const SITE = 'https://crunchcodelabs.github.io';
+export const SITE = 'https://www.crunchcodelabs.dev';
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

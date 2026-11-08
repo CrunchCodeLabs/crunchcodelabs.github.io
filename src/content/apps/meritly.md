@@ -2,13 +2,14 @@
 name: Meritly
 tagline: Record the good deeds you do, and keep yourself going with gentle goals.
 category: Lifestyle
-status: coming-soon
+status: live
 order: 3
 accent: '#506038'
 accentDeep: '#2C3A1C'
 packageId: com.crunchcodelabs.meritly
 version: '1.0.0'
 platforms: [android]
+playUrl: https://play.google.com/store/apps/details?id=com.crunchcodelabs.meritly
 icon: meritly/icon.png
 feature: meritly/feature.png
 screenshots:

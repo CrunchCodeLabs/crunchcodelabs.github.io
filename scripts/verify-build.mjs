@@ -110,6 +110,9 @@ for (const file of htmlFiles) {
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   check(!html.includes('localhost:4321'), `${rel(file)} contains a localhost URL`);
+  // The site moved to www.crunchcodelabs.dev; the old host only redirects now,
+  // so a canonical or sitemap URL pointing at it would split search ranking.
+  check(!html.includes('crunchcodelabs.github.io'), `${rel(file)} still uses the old github.io host`);
 }
 
 // 5. Legal pages: no base64 blob from the migration, and no third-party code.
