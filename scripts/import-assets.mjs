@@ -32,11 +32,11 @@ const JOBS = [
     slug: 'al-pure-mathematics',
     files: [],
     dirs: [
-      // Phone mockups only. The tablet set in mockups-2.0/tablet is a phone in a
+      // Phone mockups only. The tablet set in mockups-2.4/tablet is a phone in a
       // phone frame on a tablet-shaped canvas — fine for a Play tablet slot, but
       // it would add nothing here, and the rail does not render tablet assets.
       [
-        join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/mockups-2.0/phone'),
+        join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/mockups-2.4/phone'),
         'screens',
       ],
     ],
@@ -61,9 +61,9 @@ const JOBS = [
   {
     slug: 'meritly',
     files: [[join(SIBLINGS, 'Meritly/listing-resources/play_store_icon_512.png'), 'icon.png']],
-    // .jfif again (the misspelt name is the source file's). Re-encoded to PNG.
+    // Full-resolution master; the 1024x500 Play export is too small for the rail.
     convert: [
-      [join(SIBLINGS, 'Meritly/listing-resources/feature_graphhic.jfif'), 'feature.png', 1488],
+      [join(SIBLINGS, 'Meritly/listing-resources/feature_graphic_full.png'), 'feature.png', 1488],
     ],
     // Phone panels only, for the same reason as A/L Pure Mathematics: the rail
     // does not render the tablet sets, so they would ship as dead weight.
@@ -84,7 +84,7 @@ const SINGLES = [
     'src/assets/hero/my-book-trail.png',
   ],
   [
-    join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/screenshots-2.0/01-topics.png'),
+    join(SIBLINGS, 'PureMathematicsSinhala/listing-resources/screenshots-2.4/01-home.png'),
     'src/assets/hero/al-pure-mathematics.png',
   ],
 ];

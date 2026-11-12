@@ -14,7 +14,7 @@ playUrl: https://play.google.com/store/apps/details?id=com.crunchcode.alpuremath
 icon: al-pure-mathematics/icon.png
 feature: al-pure-mathematics/feature.png
 screenshots:
-  - al-pure-mathematics/screens/01-topics-phone.png
+  - al-pure-mathematics/screens/01-home-phone.png
   - al-pure-mathematics/screens/02-trig-phone.png
   - al-pure-mathematics/screens/03-limits-phone.png
   - al-pure-mathematics/screens/04-search-phone.png
