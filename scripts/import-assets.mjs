@@ -72,10 +72,11 @@ const JOBS = [
   {
     slug: 'payday-mate',
     files: [],
-    // The icon ships at 2048px; nothing on the site draws it above 96px.
+    // .jfif masters again (JPEG), re-encoded to PNG. The 512px icon export is
+    // used as is: it keeps the rounded corners the 2048px JPEG master lacks.
     convert: [
-      [join(SIBLINGS, 'PayDayMate/listing-resources/app_icon.png'), 'icon.png', 512],
-      [join(SIBLINGS, 'PayDayMate/listing-resources/feature_graphic.png'), 'feature.png', 1488],
+      [join(SIBLINGS, 'PayDayMate/listing-resources/app_icon_512x512.png'), 'icon.png', 512],
+      [join(SIBLINGS, 'PayDayMate/listing-resources/feature_graphic.jfif'), 'feature.png', 1488],
     ],
     dirs: [[join(SIBLINGS, 'PayDayMate/listing-resources/store-screenshots/phone'), 'screens']],
   },

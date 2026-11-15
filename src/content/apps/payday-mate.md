@@ -2,13 +2,14 @@
 name: PayDay Mate
 tagline: Know what you're owed. Shift pay, tax and super for Australian casual workers.
 category: Finance
-status: coming-soon
+status: live
 order: 4
-accent: '#5B3FC4'
-accentDeep: '#2E1F66'
+accent: '#C24E0E'
+accentDeep: '#5E2306'
 packageId: com.crunchcodelabs.paydaymate
-version: '1.0.0'
+version: '1.0.1'
 platforms: [android]
+playUrl: https://play.google.com/store/apps/details?id=com.crunchcodelabs.paydaymate
 icon: payday-mate/icon.png
 feature: payday-mate/feature.png
 screenshots:
