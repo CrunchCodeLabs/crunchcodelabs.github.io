@@ -49,6 +49,7 @@ const MBT = join(SIBLINGS, 'MyBookTrail', 'listing-resources', 'site');
 const PMF = join(SIBLINGS, 'PureMathematicsSinhala', 'listing-resources');
 const MER = join(SIBLINGS, 'Meritly', 'listing-resources');
 const PDM = join(SIBLINGS, 'PayDayMate', 'docs', 'play-store');
+const VAN = join(SIBLINGS, 'CarvanMate', 'docs', 'legal');
 
 const PRIVACY = { kind: 'privacy', title: 'Privacy Policy' };
 const TERMS = { kind: 'terms', title: 'Terms & Conditions' };
@@ -62,6 +63,8 @@ const JOBS = [
   { app: 'meritly', ...TERMS, src: join(MER, 'terms.md') },
   { app: 'payday-mate', ...PRIVACY, src: join(PDM, 'privacy-policy.html') },
   { app: 'payday-mate', ...TERMS, src: join(PDM, 'terms.md') },
+  { app: 'vanready', ...PRIVACY, src: join(VAN, 'vanready-privacy.md') },
+  { app: 'vanready', ...TERMS, src: join(VAN, 'vanready-terms.md') },
 ];
 
 function fromHtml(html) {

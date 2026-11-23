@@ -80,6 +80,15 @@ const JOBS = [
     ],
     dirs: [[join(SIBLINGS, 'PayDayMate/listing-resources/store-screenshots/phone'), 'screens']],
   },
+  {
+    slug: 'vanready',
+    // The repo folder is still named CarvanMate; the app was renamed VanReady.
+    // listing-resources/play_store_512.png is really 2752x1536 with the icon
+    // floating in transparent space; the true 512px square is in assets/icon.
+    files: [[join(SIBLINGS, 'CarvanMate/assets/icon/play_store_512.png'), 'icon.png']],
+    convert: [[join(SIBLINGS, 'CarvanMate/listing-resources/feature_graphic.png'), 'feature.png', 1488]],
+    dirs: [[join(SIBLINGS, 'CarvanMate/listing-resources/screenshots/phone'), 'screens']],
+  },
 ];
 
 /*
