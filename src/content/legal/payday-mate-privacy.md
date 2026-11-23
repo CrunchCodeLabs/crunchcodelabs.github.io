@@ -6,7 +6,7 @@ updated: 2026-11-23
 ---
 Last updated 23 November 2026
 
-PayDay Mate is a shift pay calculator for casual workers in Australia, made by Crunch Code Labs. This policy explains what information the app handles and why.
+PayDay Mate is a shift pay calculator for casual workers in Australia, made by CrunchCode Labs. This policy explains what information the app handles and why.
 
 ## Your jobs, shifts and pay stay on your phone
 
