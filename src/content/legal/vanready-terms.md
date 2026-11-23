@@ -62,13 +62,14 @@ When using the app, you agree not to:
 
 ## 6. Rewarded ads and Ad-free for life
 
-The app is free. It never shows banner ads. A few features, currently adding a second van,
-exporting a PDF and reading an invoice from a photo, ask you to watch a short rewarded video
-ad supplied by Google AdMob each time. Watching is always your choice. If no ad is available,
-the feature may be let through without one.
+The app is free and supported by ads from Google AdMob. A small banner ad may appear at the
+bottom of some screens, currently Ready, Check and Logbook. A few features, currently adding a
+second van, exporting a PDF and reading an invoice from a photo, also ask you to watch a short
+rewarded video ad each time. Watching is always your choice. If no ad is available, the
+feature may be let through without one.
 
 You can instead buy **Ad-free for life**, a one-off in-app purchase through Google Play that
-removes these ads for as long as the app is offered. It is linked to your Google account and
+removes the banner ads and the rewarded ads for as long as the app is offered. It is linked to your Google account and
 can be restored on another device with "Restore purchases". Payment, refunds and receipts are
 handled by Google Play under its terms. Which features use an ad may change in a future
 version, but Ad-free for life will continue to remove the ads for the features it covers.
@@ -76,7 +77,8 @@ version, but Ad-free for life will continue to remove the ads for the features i
 ## 7. Third-party services
 
 The app relies on services provided by Google, including AdMob, Firebase (analytics and crash
-reporting), ML Kit (on-device text recognition) and Google Play. Those services are governed by
+reporting), ML Kit (on-device text recognition) and Google Play, and the Meta (Facebook) SDK
+for measuring VanReady's own ads. Those services are governed by
 their own terms and policies, and CrunchCode Labs is not responsible for them. Advertisements
 are provided by third parties; CrunchCode Labs does not endorse the products they promote.
 
