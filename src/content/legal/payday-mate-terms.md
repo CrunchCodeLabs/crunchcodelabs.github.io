@@ -4,10 +4,9 @@ kind: terms
 title: Terms & Conditions
 updated: 2026-11-15
 ---
-
 These Terms govern your use of **PayDay Mate** (Android package
 `com.crunchcodelabs.paydaymate`), published by **CrunchCode Labs**. Please read them together
-with the [Privacy Policy](/apps/payday-mate/privacy/), which explains what information the
+with the [Privacy Policy](https://www.crunchcodelabs.dev/apps/payday-mate/privacy/), which explains what information the
 app handles and why.
 
 Effective date: 15 November 2026

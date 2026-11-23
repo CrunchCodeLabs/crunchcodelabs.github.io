@@ -4,7 +4,6 @@ kind: privacy
 title: Privacy Policy
 updated: 2026-11-07
 ---
-
 This Privacy Policy explains how **Meritly** (Android package `com.crunchcodelabs.meritly`),
 published by **CrunchCode Labs**, handles your information. In short: what you record stays
 on your phone, and nothing leaves it unless you turn on Google Drive backup.

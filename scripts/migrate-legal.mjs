@@ -1,8 +1,17 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import TurndownService from 'turndown';
 
+/*
+ * Every privacy policy and set of terms is authored in its app's repository.
+ * This script only copies them into src/content/legal/ for the site to render;
+ * nothing under src/content/legal/ is edited by hand. HTML sources are
+ * converted to Markdown, Markdown sources are copied as they are.
+ *
+ * To change a policy: edit it in the app repo, then run
+ *   node scripts/migrate-legal.mjs
+ */
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SIBLINGS = resolve(ROOT, '..');
 const OUT = join(ROOT, 'src', 'content', 'legal');
@@ -38,44 +47,24 @@ td.addRule('gfmTable', {
 // MyBookTrail's store/ was renamed to listing-resources/ during development.
 const MBT = join(SIBLINGS, 'MyBookTrail', 'listing-resources', 'site');
 const PMF = join(SIBLINGS, 'PureMathematicsSinhala', 'listing-resources');
+const MER = join(SIBLINGS, 'Meritly', 'listing-resources');
 const PDM = join(SIBLINGS, 'PayDayMate', 'docs', 'play-store');
 
+const PRIVACY = { kind: 'privacy', title: 'Privacy Policy' };
+const TERMS = { kind: 'terms', title: 'Terms & Conditions' };
+
 const JOBS = [
-  {
-    src: join(MBT, 'privacy-policy.html'),
-    app: 'my-book-trail',
-    kind: 'privacy',
-    title: 'Privacy Policy',
-  },
-  {
-    src: join(MBT, 'terms.html'),
-    app: 'my-book-trail',
-    kind: 'terms',
-    title: 'Terms & Conditions',
-  },
-  {
-    src: join(PMF, 'privacy-policy.html'),
-    app: 'al-pure-mathematics',
-    kind: 'privacy',
-    title: 'Privacy Policy',
-  },
-  {
-    src: join(PDM, 'privacy-policy.html'),
-    app: 'payday-mate',
-    kind: 'privacy',
-    title: 'Privacy Policy',
-  },
-  // PayDay Mate has no authored terms document, so its terms stay
-  // hand-written in src/content/legal/payday-mate-terms.md.
-  // A/L Pure Mathematics has no authored terms document yet, so
-  // src/content/legal/al-pure-mathematics-terms.md stays hand-written.
+  { app: 'my-book-trail', ...PRIVACY, src: join(MBT, 'privacy-policy.html') },
+  { app: 'my-book-trail', ...TERMS, src: join(MBT, 'terms.html') },
+  { app: 'al-pure-mathematics', ...PRIVACY, src: join(PMF, 'privacy-policy.html') },
+  { app: 'al-pure-mathematics', ...TERMS, src: join(PMF, 'terms.md') },
+  { app: 'meritly', ...PRIVACY, src: join(MER, 'privacy-policy.md') },
+  { app: 'meritly', ...TERMS, src: join(MER, 'terms.md') },
+  { app: 'payday-mate', ...PRIVACY, src: join(PDM, 'privacy-policy.html') },
+  { app: 'payday-mate', ...TERMS, src: join(PDM, 'terms.md') },
 ];
 
-await mkdir(OUT, { recursive: true });
-
-for (const job of JOBS) {
-  job.slug = `${job.app}-${job.kind}`;
-  const html = await readFile(job.src, 'utf8');
+function fromHtml(html) {
   const body = /<body[^>]*>([\s\S]*?)<\/body>/i.exec(html)?.[1] ?? html;
 
   const stripped = body
@@ -91,12 +80,35 @@ for (const job of JOBS) {
     // h1 deeper in the body would still surface rather than being hidden.
     .replace(/<h1[\s\S]*?<\/h1>/i, '');
 
-  const md = td
-    .turndown(stripped)
+  return td.turndown(stripped).replace(/\n{3,}/g, '\n\n').trim();
+}
+
+// Markdown sources open with their own "# Title" line so they read well in the
+// app repo. LegalLayout renders the title, so that first h1 is dropped here.
+function fromMarkdown(text) {
+  return text
+    .replace(/\r\n/g, '\n')
+    .replace(/^---\n[\s\S]*?\n---\n/, '')
+    .replace(/^\s*# .*\n/, '')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
 
-  const updated = new Date().toISOString().slice(0, 10);
+await mkdir(OUT, { recursive: true });
+
+for (const job of JOBS) {
+  const slug = `${job.app}-${job.kind}`;
+  const source = await readFile(job.src, 'utf8');
+  const md = job.src.endsWith('.md') ? fromMarkdown(source) : fromHtml(source);
+
+  // The date moves only when the text does, so re-running this after one app's
+  // policy changes does not re-date every other app's.
+  const target = join(OUT, `${slug}.md`);
+  const previous = (await readFile(target, 'utf8').catch(() => '')).replace(/\r\n/g, '\n');
+  const prevBody = previous.replace(/^---\n[\s\S]*?\n---\n/, '').trim();
+  const prevDate = /^updated: (\S+)$/m.exec(previous)?.[1];
+  const changed = !(prevDate && prevBody === md);
+  const updated = changed ? new Date().toISOString().slice(0, 10) : prevDate;
 
   const front = [
     '---',
@@ -108,7 +120,7 @@ for (const job of JOBS) {
     '',
   ].join('\n');
 
-  await writeFile(join(OUT, `${job.slug}.md`), front + md + '\n', 'utf8');
+  await writeFile(target, front + md + '\n', 'utf8');
 
   // Loud enough to notice if a future source page changes shape.
   const checks = {
@@ -117,9 +129,17 @@ for (const job of JOBS) {
     tables: (md.match(/^\|/gm) || []).length,
   };
   console.log(
-    `wrote ${job.slug}.md (${md.length} chars) — ` +
+    `${changed ? 'updated  ' : 'unchanged'} ${slug}.md (${md.length} chars) — ` +
       Object.entries(checks)
         .map(([k, v]) => `${k}: ${v}`)
         .join(', '),
   );
+}
+
+// Anything else in the folder was written by hand, which this setup rules out.
+const expected = new Set(JOBS.map((j) => `${j.app}-${j.kind}.md`));
+const strays = (await readdir(OUT)).filter((f) => f.endsWith('.md') && !expected.has(f));
+if (strays.length) {
+  console.warn(`\nNot from any app repo (move it there and add a job): ${strays.join(', ')}`);
+  process.exitCode = 1;
 }

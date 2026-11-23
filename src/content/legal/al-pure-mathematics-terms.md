@@ -4,10 +4,9 @@ kind: terms
 title: Terms & Conditions
 updated: 2026-09-27
 ---
-
 These Terms govern your use of **A/L Pure Mathematics** (Android package
 `com.crunchcode.alpuremathematics`), published by **CrunchCode Labs**. Please read them
-together with the [Privacy Policy](/apps/al-pure-mathematics/privacy/), which explains what information the app
+together with the [Privacy Policy](https://www.crunchcodelabs.dev/apps/al-pure-mathematics/privacy/), which explains what information the app
 handles and why.
 
 Effective date: 27 September 2026

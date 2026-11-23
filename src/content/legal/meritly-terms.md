@@ -4,10 +4,9 @@ kind: terms
 title: Terms & Conditions
 updated: 2026-11-07
 ---
-
 These Terms govern your use of **Meritly** (Android package `com.crunchcodelabs.meritly`),
 published by **CrunchCode Labs**. Please read them together with the
-[Privacy Policy](/apps/meritly/privacy/), which explains what information the app handles
+[Privacy Policy](https://www.crunchcodelabs.dev/apps/meritly/privacy/), which explains what information the app handles
 and why.
 
 Effective date: 7 November 2026
