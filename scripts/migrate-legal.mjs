@@ -38,6 +38,7 @@ td.addRule('gfmTable', {
 // MyBookTrail's store/ was renamed to listing-resources/ during development.
 const MBT = join(SIBLINGS, 'MyBookTrail', 'listing-resources', 'site');
 const PMF = join(SIBLINGS, 'PureMathematicsSinhala', 'listing-resources');
+const PDM = join(SIBLINGS, 'PayDayMate', 'docs', 'play-store');
 
 const JOBS = [
   {
@@ -58,6 +59,14 @@ const JOBS = [
     kind: 'privacy',
     title: 'Privacy Policy',
   },
+  {
+    src: join(PDM, 'privacy-policy.html'),
+    app: 'payday-mate',
+    kind: 'privacy',
+    title: 'Privacy Policy',
+  },
+  // PayDay Mate has no authored terms document, so its terms stay
+  // hand-written in src/content/legal/payday-mate-terms.md.
   // A/L Pure Mathematics has no authored terms document yet, so
   // src/content/legal/al-pure-mathematics-terms.md stays hand-written.
 ];

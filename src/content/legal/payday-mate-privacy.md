@@ -2,136 +2,49 @@
 app: payday-mate
 kind: privacy
 title: Privacy Policy
-updated: 2026-11-15
+updated: 2026-11-23
 ---
+Last updated 23 November 2026
 
-This Privacy Policy explains how **PayDay Mate** (Android package
-`com.crunchcodelabs.paydaymate`), published by **CrunchCode Labs**, handles your information.
+PayDay Mate is a shift pay calculator for casual workers in Australia, made by Crunch Code Labs. This policy explains what information the app handles and why.
 
-In short, your jobs, shifts and pay details stay on your phone. The app is free and paid for
-by advertising, so it uses Google services to show ads, measure how the app is used and
-report crashes. Those services receive device-level information, which this policy describes.
-They never receive your shifts, pay rates or tax details.
+## Your jobs, shifts and pay stay on your phone
 
-Effective date: 15 November 2026
+The jobs, pay rates, shifts, tax settings and pay estimates you enter are stored only on your device. PayDay Mate has no accounts and does not send this information to us or anyone else. If you export a PDF or CSV, it goes only where you choose to share it.
 
-## 1. Information you enter
+Android may include the app's data in your device backup if you have Android backup turned on. That backup is handled by Google under your Google account settings.
 
-PayDay Mate stores what you enter into it:
+## Information collected by services the app uses
 
-*   Jobs: names, colours, hourly rates, pay cycle and rate rules (weekend, evening, public
-    holiday and overtime rates)
-*   Shifts, planned or worked, with their dates and times
-*   Your tax settings: residency status, whether you claim the tax-free threshold, study or
-    training loan, Medicare levy exemption, salary sacrifice and super rate
-*   Your state, used to mark public holidays, and app preferences
+The app uses the following services, which collect some information automatically:
 
-This information is stored only on your device, in the app's private storage. It is not sent
-to CrunchCode Labs or to any advertising, analytics or crash-reporting service. CrunchCode
-Labs has no server that receives it and cannot see it.
+*   **Google AdMob** shows ads. It may collect your device's advertising ID, device and app information, and an approximate location based on your IP address, to show and measure ads and to prevent fraud. Where the law requires it, the app asks for your consent before ads are personalised. You can reset or delete your advertising ID in your Android settings.
+*   **Firebase Analytics** records how the app is used, such as screens opened, together with device information and an app instance ID, so we can improve the app.
+*   **Firebase Crashlytics** collects crash reports, including device information and the state of the app when it crashed, so we can fix problems.
+*   **Firebase Remote Config** downloads updated settings and tax data, using an app installation ID.
+*   **Google Play** handles in-app reviews and updates under Google's own terms.
+*   **Meta App Events** (the Facebook SDK, from Meta Platforms) tells us whether people who saw our ads on Facebook or Instagram installed and used the app. It sends Meta your device's advertising ID, device and app information, an approximate location based on your IP address, the app installing and opening, and two app steps: setting up your first job and adding a shift. These events carry no pay figures, rates, job names or shift details. Meta uses this information to measure and improve ads, as described in its [privacy policy](https://www.facebook.com/privacy/policy/). You can limit this by deleting or resetting your advertising ID in your Android settings, and manage how Meta uses information from apps in your [Meta ad preferences](https://accountscenter.facebook.com/ad_preferences).
 
-The app does not ask for your name, email address, tax file number, bank details or employer.
+None of these services receive the pay figures, rates or shifts you enter. Google's use of this information is described in its [privacy policy](https://policies.google.com/privacy) and in [how Google uses information from apps that use its services](https://policies.google.com/technologies/partner-sites).
 
-## 2. Exports
+## When you contact us
 
-When you export a pay period as a PDF or CSV file, the app creates the file and opens
-Android's share sheet. The file goes only where you choose to send it, such as your email or
-a file storage app. CrunchCode Labs does not receive a copy.
+If you use "Report an issue", your email app sends us your message, your email address and the app version. We use these only to reply and to fix the problem.
 
-## 3. Advertising (Google AdMob)
+## What we don't do
 
-The app shows banner ads and occasional full-screen ads, and offers an optional video ad that
-removes ads for 72 hours. These are provided by **Google AdMob**.
+*   We don't sell your information.
+*   We don't ask for your name, tax file number or bank details.
+*   The app is not directed at children under 13.
 
-To deliver and measure ads, and to prevent fraud, AdMob collects information from your device,
-which can include:
+## Deleting your information
 
-*   Your device's advertising ID
-*   IP address, from which an approximate location can be inferred
-*   Device model, operating system and language
-*   Interactions with ads, such as views and taps
+Uninstalling PayDay Mate deletes everything stored in the app. To ask us to delete analytics or crash data linked to your device, or an email you sent us, write to the address below.
 
-Where the law requires consent, for example in the European Economic Area, the United Kingdom
-and Switzerland, the app asks for it using Google's consent tool before personalised ads are
-shown. You can reset or delete your advertising ID, or opt out of personalised ads, in your
-Android settings under **Privacy → Ads** (the wording varies by device).
+## Estimates only
 
-## 4. Usage measurement (Google Analytics for Firebase)
+PayDay Mate shows estimates. They are not financial or tax advice and may differ from your payslip.
 
-The app uses **Google Analytics for Firebase** to understand how the app is used, such as
-which screens are opened, how long sessions last and which app version and device are in use.
-This is collected with an app instance identifier, not your name, and may include your
-approximate location derived from your IP address. The app does not log your shifts, pay or
-tax details as analytics events.
+## Changes and contact
 
-## 5. Crash reports (Firebase Crashlytics)
-
-If the app crashes, **Firebase Crashlytics** sends a crash report so the problem can be fixed.
-A report contains technical details: the error and where it happened in the code, the device
-model, operating system version, app version and an installation identifier. It does not
-include your jobs, shifts or tax details.
-
-## 6. App configuration (Firebase Remote Config)
-
-The app checks **Firebase Remote Config** for updated tax tables, public holiday lists and
-settings such as how often full-screen ads may appear. This request identifies the app
-installation but carries none of your personal data.
-
-## 7. Google Play updates and reviews
-
-The app uses Google Play to check for updates and may ask you to rate it. Both are handled by
-the Google Play Store app under Google's own terms; CrunchCode Labs receives no information
-about you from them, and cannot see who left which review.
-
-## 8. Google's use of this information
-
-The information described in sections 3 to 7 is processed by Google LLC and its affiliates,
-which may store and process it outside Australia, including in the United States. Google's use
-is governed by its own policies:
-
-*   [Google Privacy Policy](https://policies.google.com/privacy)
-*   [How Google uses information from apps that use its services](https://policies.google.com/technologies/partner-sites)
-*   [Firebase privacy and security](https://firebase.google.com/support/privacy)
-
-## 9. What CrunchCode Labs does not do
-
-*   It does not sell your personal information
-*   It does not have an account system or collect your contact details through the app
-*   It does not receive or store your pay, shift or tax information
-
-## 10. Keeping and deleting your data
-
-Your jobs and shifts stay on your device until you delete them. Uninstalling the app, or
-clearing its storage in Android settings, removes all of them permanently. There is no cloud
-copy, so CrunchCode Labs cannot recover them.
-
-Information collected by Google is kept according to Google's retention settings. Resetting
-your advertising ID breaks its link to past advertising activity.
-
-## 11. Children
-
-PayDay Mate is meant for working adults and is not directed at children under 13. CrunchCode
-Labs does not knowingly collect information from children.
-
-## 12. Your rights
-
-Depending on where you live, including under Australia's Privacy Act 1988 or the GDPR, you may
-have rights to access, correct or delete personal information, or to object to its use. Because
-the information you enter stays on your device, you control it directly. For information held
-by Google, use Google's tools linked in section 8, or contact us and we will help where we can.
-
-## 13. Security
-
-Your data is kept in the app's private storage, which other apps cannot read. Connections to
-Google services are encrypted. Protecting your phone with a screen lock helps keep your pay
-details private.
-
-## 14. Changes to this policy
-
-This policy may be updated when the app changes. The effective date above will change when it
-does, and significant changes will be noted in the Play Store release notes.
-
-## 15. Contact
-
-Questions or requests about this policy:
-[crunchcodelabs@gmail.com](mailto:crunchcodelabs@gmail.com)
+If this policy changes, the new version will be posted here with a new date. Questions: [crunchcodelabs@gmail.com](mailto:crunchcodelabs@gmail.com)

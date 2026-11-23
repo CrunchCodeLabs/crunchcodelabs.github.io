@@ -2,9 +2,9 @@
 app: al-pure-mathematics
 kind: privacy
 title: Privacy Policy
-updated: 2026-09-27
+updated: 2026-11-23
 ---
-**A/L Combined Maths** — formulas in Sinhala for A/L Combined Mathematics  
+**A/L Pure Mathematics** — formulas in Sinhala for A/L Combined Mathematics  
 Android package `com.crunchcode.alpuremathematics`  
 Effective 26 September 2026
 
@@ -85,7 +85,7 @@ This app is made for students preparing for the Sri Lankan G.C.E. Advanced Level
 
 ## 9\. Deleting your information
 
-Because everything is local, you remove it by removing it from your device: use _Settings → Apps → A/L Combined Maths → Storage → Clear data_, or simply uninstall the app. Nothing is left behind on our side, because nothing was ever sent there. If Android backup is on, also clear the app from your Google backup as described in section 5.
+Because everything is local, you remove it by removing it from your device: use _Settings → Apps → A/L Pure Mathematics → Storage → Clear data_, or simply uninstall the app. Nothing is left behind on our side, because nothing was ever sent there. If Android backup is on, also clear the app from your Google backup as described in section 5.
 
 ## 10\. Changes to this policy
 
